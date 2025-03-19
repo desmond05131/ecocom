@@ -52,7 +52,7 @@
     width: 30px;
 }
 
-.menu-icon, .search-icon, .cart-icon, .user-icon {
+.menu-icon, .search-icon, .cart-icon, .person-icon {
     height: 25px;
     cursor: pointer;
 }
