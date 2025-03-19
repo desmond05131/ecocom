@@ -102,18 +102,54 @@
     display: block;
 }
 
-/* Bottom Notification Banner */
+/* Bottom Banner Styling */
 .bottom-banner {
     width: 100%;
-    height: 100px; /* Increase height */
+    height: 100px; /* Adjust height */
     background-color: #3A7347;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px; /* Spacing between elements */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: normal;
+    position: relative;
+    margin-top: -80px; /* Overlaps the image */
+    z-index: 2;
+}
+
+/* Banner Main Text */
+.banner-text {
+    color: #FFF;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+/* Star Icons */
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 2px; /* Small spacing between stars */
+}
+
+.star-icon {
+    width: 24px; /* Match the size of stars in Figma */
+    height: 24px;
+}
+
+/* Rating Number */
+.rating {
+    color: #FDD835; /* Gold rating color */
     font-size: 23px;
     font-weight: bold;
-    position: relative; /* Allows overlapping */
-    margin-top: -80px; /* Pulls the banner up */ /* Goes up as number increases */
-    z-index: 2; /* Ensures it appears above the image */
+}
+
+/* Review Text */
+.review-text {
+    color: white;
+    font-size: 24px;
 }
