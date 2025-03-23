@@ -180,7 +180,7 @@
     text-decoration: underline;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) {  /* this for big screen(laptop/pc) */
     .grid-row {
         display: flex;
         flex-direction: row;
@@ -188,7 +188,7 @@
     }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1023px) { /* this for slightly bigger screen(ipad/tablet) */
     .grid-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -197,7 +197,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* this for smol screen(phone) */
     .grid-row {
         display: flex;
         flex-direction: column;
