@@ -204,7 +204,7 @@
   
   /* Heading Styling */
   .card-text h3 {
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 26px;
     font-weight: 500;
     color: #FFFFFF;
@@ -216,7 +216,7 @@
   
   /* Link/Button Styling */
   .card-link {
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     font-weight: 200;
     color: #FFFFFF;
