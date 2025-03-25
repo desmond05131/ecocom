@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: Arial, sans-serif;
   }
   
   /* Top Notification Banner */
@@ -198,46 +198,15 @@
     background-color: #2e5d37;
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
-    .product-detail-container {
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-  
-    .product-image img {
-      width: 80%;
-      max-width: 300px;
-    }
-  
-    .product-info {
-      width: 100%;
-      text-align: center;
-    }
-  
-    .product-description,
-    .wishlist ul,
-    .notes p {
-      text-align: left;
-    }
-  
-    .action-buttons {
-      justify-content: center;
-      margin-top: 20px;
-    }
-  }
-
     /* Footer */
     .site-footer {
       background-color: #3A7347;
       color: #ffffff;
       padding: 60px 20px 30px;
       font-size: 18px;
-      font-family: 'Source Sans Pro', sans-serif;
       margin-top: 60px;
     }
-      
+    
     .footer-columns {
       display: flex;
       flex-wrap: wrap;
@@ -245,43 +214,70 @@
       gap: 60px;
       margin-bottom: 30px;
     }
-      
+    
     .footer-col h4 {
       font-weight: bold;
       margin-bottom: 12px;
-      font-family: 'Source Sans Pro', sans-serif;
     }
-      
+    
     .footer-col ul {
       list-style: none;
       padding: 0;
     }
-      
+    
     .footer-col ul li {
       margin-bottom: 8px;
     }
-      
+    
     .footer-col ul li a {
       color: #ffffff;
       text-decoration: none;
       font-weight: 400;
-      font-family: 'Source Sans Pro', sans-serif;
     }
-      
+    
     .footer-col ul li a:hover {
       text-decoration: underline;
     }
-      
+    
     footer hr {
       border: 0;
       border-top: 1px solid rgba(255, 255, 255, 0.4);
       margin: 30px 0;
     }
-      
+    
     .footer-bottom {
       text-align: center;
       font-size: 13px;
       opacity: 0.8;
-      font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .product-detail-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+    
+      .product-image img {
+        width: 80%;
+        max-width: 300px;
+      }
+    
+      .product-info {
+        width: 100%;
+        text-align: center;
+      }
+    
+      .product-description,
+      .wishlist ul,
+      .notes p {
+        text-align: left;
+      }
+    
+      .action-buttons {
+        justify-content: center;
+        margin-top: 20px;
+      }
     }
   
