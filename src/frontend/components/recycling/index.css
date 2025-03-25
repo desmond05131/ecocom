@@ -1,68 +1,78 @@
-*{
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    /* overflow-x: hidden; */
-    box-sizing: border-box;
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.headingbanner{
-    position: sticky;
-    top: 0;
-    z-index: 500; /* Behind navbar */
-    height: 60px;
-    background-color: #3A7347;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-  }
+/* Top Notification Banner */
+.top-banner {
+position: sticky;
+top: 0;
+z-index: 500; /* Behind navbar */
+height: 60px;
+background-color: #3A7347;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+}
 
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: white;
-    height: 100px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-  }
+/* Navigation Bar */
+.nav-bar {
+position: sticky;
+top: 0;
+z-index: 1000; /* In front of banner */
+background: white;
+height: 100px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 20px;
+}
 
+/* Left and Right Sections */
 .nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.logo-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Center Logo */
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Logo Icon */
+.logo-icon {
+  width: 30px;
+  height: 30px;
 }
 
-.logo {
-    height: 30px;
-    width: 30px;
+/* Logo Text */
+.logo-text {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
 }
 
-.menu-icon, .search-icon, .cart-icon, .person-icon {
-    height: 25px;
-    cursor: pointer;
+/* Icons */
+.icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  object-fit: contain;
 }
+
 .calender-btn {
   color: #000000;
 }
