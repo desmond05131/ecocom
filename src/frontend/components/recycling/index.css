@@ -1,5 +1,5 @@
 *{
-    font-family:sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
     /* overflow-x: hidden; */
@@ -63,6 +63,9 @@
     height: 25px;
     cursor: pointer;
 }
+.calender-btn {
+  color: #000000;
+}
 
 .card-container {
     display: grid;
@@ -81,7 +84,7 @@
     border-radius: 10px;
     overflow: hidden;
     text-align: left;
-    padding: 10px;
+    /* padding: 10px; */
     max-width: fit-content;
 }
 
@@ -92,8 +95,10 @@
 
 .card-content {
     display: flex;
+    padding: 10px 20px 20px 20px;
     flex-direction: column;
     justify-content: space-between;
+    gap: 5px;
 }
 
 .navigate-btn {
@@ -111,7 +116,7 @@
 }
 
 .navigate-btn img {
-    width: 24px; 
+    width: 24px;
     height: 24px;
 }
 
@@ -128,12 +133,28 @@
 .btn-container {
     display: flex;
     justify-content: flex-end;
-    gap: 10px; 
-    margin-top: auto; 
+    gap: 10px;
+    margin-top: auto;
 }
 
-.subtext {
-    color: grey;
+.card-title {
+  color: #000;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: black;
+  line-height: normal;
+}
+
+.card-date {
+  color: #A7A7A7;
+}
+
+.card-date-real {
+  color: #222222;
+}
+
+.card-location {
+  color: #A7A7A7;
 }
 
 .site-footer {
@@ -143,7 +164,7 @@
     font-size: 18px;
     margin-top: 60px;
   }
-  
+
   .footer-columns {
     display: flex;
     flex-wrap: wrap;
@@ -151,37 +172,37 @@
     gap: 60px;
     margin-bottom: 30px;
   }
-  
+
   .footer-col h4 {
     font-weight: bold;
     margin-bottom: 12px;
   }
-  
+
   .footer-col ul {
     list-style: none;
     padding: 0;
   }
-  
+
   .footer-col ul li {
     margin-bottom: 8px;
   }
-  
+
   .footer-col ul li a {
     color: #ffffff;
     text-decoration: none;
     font-weight: 400;
   }
-  
+
   .footer-col ul li a:hover {
     text-decoration: underline;
   }
-  
+
   footer hr {
     border: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.4);
     margin: 30px 0;
   }
-  
+
   .footer-bottom {
     text-align: center;
     font-size: 13px;
