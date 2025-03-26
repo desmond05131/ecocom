@@ -115,11 +115,11 @@ h1 {
 }
 
 article p {
-    font-size: 24px;
-    margin-bottom: 15px;
-    text-align: justify;
-    font-family: 'Source Serif 4', serif;
-    font-weight: 550;
+  font-size: clamp(18px, 2vw, 24px);
+  margin-bottom: 15px;
+  text-align: justify;
+  font-family: 'Source Serif 4', serif;
+  font-weight: 550;
 }
 
 @media (max-width: 768px) {
