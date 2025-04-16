@@ -3,24 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Assignment</title>
+        <title>Sign in</title>
         <head>
 
             <!--external style sheet-->
             <link rel="stylesheet" href="index.css" />
         </head>
         <body>
-            <h1 style="height: 880px;"><img src="/src/frontend/images/Ellipse 1.svg" alt="Description of image" /> ECOCOM</h1>
+            <header class="header">
+                <img src="/src/frontend/images/Ellipse 1.svg" alt="Description of image" style="padding-top: 20px;"> <Strong>ECOCOM</Strong>
+            </header>
             <div class="container">
                 <h2>Welcome back</h2>
                 <p class="subtext">Please insert your details</p>
 
                 <form action="" method="post">
                     <label for="email">Email Address</label>
-                    <input type="email" name="email" id style="width: 300px;" />
+                    <input type="email" name="email"/>
                     <br />
                     <label for="password">Password</label>
-                    <input type="password" name="password" id style="width: 300px;">
+                    <input type="password" name="password">
                     <div class="forget-pass">
                         <label class="checkbox">
                             <input type="checkbox" style="width: 15px; height: 20px; margin-bottom: 5px;">Remember me
@@ -36,5 +38,7 @@
                 <p class="signin">Don't have an account? <a href="/src/frontend/components/signup/index.html">Sign up</a></p>
             </form>
         </div>
+        <div class="image-container">
         <img src="/src/frontend/images/Frame 1.png" style="height: 920px; margin-left: auto;">
+        </div>
     </body>
