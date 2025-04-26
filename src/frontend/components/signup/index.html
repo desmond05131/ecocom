@@ -16,35 +16,20 @@
             <h2>Join us now</h2>
             <p class="subtext">Please insert your details</p>
 
-            <form action="" method="post" id="" style="width: 330px;">
+            <form action="/src/backend/auth/signup.php" method="post" style="width: 330px;">
                 <label for="email">Email Address</label>
-                <input type="email" name="email" id="" />
+                <input type="email" name="email" id="email" required />
                 <br />
                 <label for="name">Username</label>
-                <input type="text" name="name" id="" />
+                <input type="text" name="username" id="username" required />
                 <br />
                 <label for="password">Password</label>
-                <input type="password" name="password" id="">
+                <input type="password" name="password" id="password" required />
                 <br />
-                <label for="birthday">Birthday</label>
-                <div class="birthday">
-                    <select>
-                        <option>01</option>
-                        <option>02</option>
-                        <option>...</option>
-                    </select>
-                    <select>
-                        <option>Jan</option>
-                        <option>Feb</option>
-                        <option>...</option>
-                    </select>
-                    <select>
-                        <option>2000</option>
-                        <option>2001</option>
-                        <option>...</option>
-                    </select>
-                </div>
-
+                <label for="birthdate">Birthday</label>
+                <input type="date" name="birthdate" id="birthdate" required />
+                <br />
+        
                 <label class="checkbox">
                     <input type="checkbox" style="width: 15px; height: 20px; margin-bottom: 5px;">
                     I agree to the <a href="#">Terms of use</a>
