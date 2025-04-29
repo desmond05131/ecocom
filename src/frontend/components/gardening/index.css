@@ -44,14 +44,16 @@ body {
     min-width: 80px;
 }
 
-.navbar-left, .navbar-right img {
+.navbar-left img,
+.navbar-right img {
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.navbar-left, .navbar-right img:hover {
+.navbar-left img:hover, 
+.navbar-right img:hover {
     opacity: 0.8;
     transform: scale(1.1);
 }
@@ -323,7 +325,7 @@ footer a:hover {
     
     .create-garden {
         width: auto;
-    }
+    }   
 }
 
 @media (max-width: 480px) {
