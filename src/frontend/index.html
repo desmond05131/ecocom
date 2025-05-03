@@ -6,7 +6,7 @@
     <title>Homepage</title>
     <link rel="stylesheet" href="index.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'> <!-- Allows me to use Public Sans -->
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
 </head>
 <body>
 
@@ -40,7 +40,14 @@
 
         <div class="nav-right">
             <img src="images/Shopping bag.svg" alt="Shopping Icon" class="icon">
-            <img src="images/Person.svg" alt="Person Icon" class="icon">
+            <div class="profile-container">
+                <img src="images/Person.svg" alt="Person Icon" class="icon" id="profileBtn">
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="#">My Profile</a>
+                    <a href="#">Favourite</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
         </div>
     </header>
 

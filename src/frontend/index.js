@@ -43,6 +43,24 @@ document.addEventListener('DOMContentLoaded', function() {
     sidebar.addEventListener('click', function(event) {
         event.stopPropagation();
     });
+
+    // Profile dropdown functionality
+    const profileBtn = document.getElementById('profileBtn');
+    const profileDropdown = document.getElementById('profileDropdown');
+    
+    if (profileBtn && profileDropdown) {
+        profileBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking elsewhere on the page
+        document.addEventListener('click', function(e) {
+            if (profileDropdown.classList.contains('show') && !e.target.closest('.profile-container')) {
+                profileDropdown.classList.remove('show');
+            }
+        });
+    }
 });
 
 /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
