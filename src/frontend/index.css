@@ -371,4 +371,59 @@
     text-align: center;
     font-size: 13px;
     opacity: 0.8;
-  } 
+  }
+
+/* The sidebar menu */
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+body {
+  transition: margin-left .5s; /* If you want a transition effect */
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2000; 
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.3s;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2); /* Adding shadow for floating effect */
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  color: #4CAF50; /* Eco-friendly green color */
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+/* When sidebar is open */
+.sidebar.open {
+  width: 250px;
+}
+
+/* Main content won't be pushed - stays in place */
+body {
+  transition: margin-left 0.3s;
+}
