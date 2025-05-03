@@ -257,3 +257,14 @@ footer hr {
   width: 100%;
 }
 }
+
+.button-row {
+    width: 100%;
+    padding: 10px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
