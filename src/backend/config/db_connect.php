@@ -1,16 +1,21 @@
 <?php
+$host = 'localhost';
+$db   = 'ecocom_db';
+$user = 'root';
+// Update the password to your correct MySQL root password; if none is set, leave it empty
+$pass = ''; 
+$charset = 'utf8mb4';
 
-
-$host = 'localhost';   
-$dbname = 'ECOCOM_DB'; 
-$username = 'root';    
-$password = 'ECOCOM28';        
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    // Set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+    $conn = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+    exit;
 }
-?>
