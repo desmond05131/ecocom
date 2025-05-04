@@ -8,28 +8,28 @@ function initializeHeader() {
     // Get the sidebar elements
     const sidebar = document.getElementById('mySidebar');
     const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.querySelector('.sidebar .closebtn');
-    
+    const closeBtn = document.querySelector('.header-sidebar .closebtn');
+
     if (sidebar && menuBtn && closeBtn) {
         // Toggle sidebar when menu button is clicked
         menuBtn.addEventListener('click', function() {
             sidebar.classList.toggle('open');
         });
-        
+
         // Close sidebar when close button is clicked
         closeBtn.addEventListener('click', function() {
             sidebar.classList.remove('open');
         });
-        
+
         // Close sidebar when clicking outside of it
         document.addEventListener('click', function(event) {
-            if (!sidebar.contains(event.target) && 
-                event.target !== menuBtn && 
+            if (!sidebar.contains(event.target) &&
+                event.target !== menuBtn &&
                 sidebar.classList.contains('open')) {
                 sidebar.classList.remove('open');
             }
         });
-        
+
         // Stop propagation on sidebar clicks to prevent close-when-clicking-outside behavior
         sidebar.addEventListener('click', function(event) {
             event.stopPropagation();
@@ -39,16 +39,16 @@ function initializeHeader() {
     // Profile dropdown functionality
     const profileBtn = document.getElementById('profileBtn');
     const profileDropdown = document.getElementById('profileDropdown');
-    
+
     if (profileBtn && profileDropdown) {
         profileBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             profileDropdown.classList.toggle('show');
         });
-        
+
         // Close dropdown when clicking elsewhere on the page
         document.addEventListener('click', function(e) {
-            if (profileDropdown.classList.contains('show') && !e.target.closest('.profile-container')) {
+            if (profileDropdown.classList.contains('show') && !e.target.closest('.header-profile-container')) {
                 profileDropdown.classList.remove('show');
             }
         });

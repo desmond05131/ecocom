@@ -1,4 +1,4 @@
-.shipping-notice {
+.header-shipping-notice {
     background-color: #2d6a3f;
     color: white;
     padding: 0.6rem;
@@ -8,7 +8,7 @@
     position: relative;
 }
 
-.sticky-navbar {
+.header-sticky-navbar {
     position: sticky;
     top: 0;
     width: 100%;
@@ -17,7 +17,7 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
+.header-navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,28 +25,28 @@
     border-bottom: 1px solid #ddd;
 }
 
-.navbar-left,
-.navbar-right {
+.header-navbar-left,
+.header-navbar-right {
     display: flex;
     gap: 1rem;
     min-width: 80px;
 }
 
-.navbar-left,
-.navbar-right img {
+.header-navbar-left,
+.header-navbar-right img {
     width: 1.5rem;
     height: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.navbar-left img:hover,
-.navbar-right img:hover {
+.header-navbar-left img:hover,
+.header-navbar-right img:hover {
     opacity: 0.8;
     transform: scale(1.1);
 }
 
-.logo {
+.header-logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,14 +54,14 @@
     gap: 8px;
 }
 
-.logo-icon {
+.header-logo-icon {
     width: 24px;
     height: 24px;
     display: inline-block;
     vertical-align: middle;
 }
 
-.logo-text {
+.header-logo-text {
     font-size: 15px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
@@ -69,7 +69,7 @@
 }
 
 /* Sidebar styles */
-.sidebar {
+.header-sidebar {
     height: 100%;
     width: 0;
     position: fixed;
@@ -85,7 +85,7 @@
     /* Adding shadow for floating effect */
 }
 
-.sidebar a {
+.header-sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 22px;
@@ -94,12 +94,12 @@
     transition: 0.2s;
 }
 
-.sidebar a:hover {
+.header-sidebar a:hover {
     color: #4CAF50;
     /* Eco-friendly green color */
 }
 
-.sidebar .closebtn {
+.header-sidebar .closebtn {
     position: absolute;
     top: 10px;
     right: 25px;
@@ -109,17 +109,17 @@
 }
 
 /* When sidebar is open */
-.sidebar.open {
+.header-sidebar.open {
     width: 250px;
 }
 
 /* Profile dropdown styling */
-.profile-container {
+.header-profile-container {
     position: relative;
     display: inline-block;
 }
 
-.profile-dropdown {
+.header-profile-dropdown {
     display: none;
     position: absolute;
     right: 0;
@@ -132,7 +132,7 @@
     margin-top: 5px;
 }
 
-.profile-dropdown a {
+.header-profile-dropdown a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -140,10 +140,38 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.profile-dropdown a:hover {
+.header-profile-dropdown a:hover {
     background-color: #f1f1f1;
 }
 
-.profile-dropdown.show {
+.header-profile-dropdown.show {
     display: block;
+}
+
+@media (max-width: 768px) {
+    .header-navbar {
+        padding: 0.8rem 2%;
+    }
+
+    .header-logo {
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .header-navbar-left, .header-navbar-right {
+        min-width: 60px;
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-shipping-notice {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-navbar {
+        padding: 1rem 3%;
+    }
 }
