@@ -1,76 +1,81 @@
-/* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Top Notification Banner */
-.top-banner {
+body {
+  background-color: white;
+  color: #333;
+  line-height: 1.6;
+}
+
+.shipping-notice {
+  background-color: #2d6a3f;
+  color: white;
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+}
+
+.sticky-navbar {
   position: sticky;
   top: 0;
-  z-index: 500; /* Behind navbar */
-  height: 60px;
-  background-color: #3A7347;
-  color: white;
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3%;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  gap: 1rem;
+  min-width: 80px;
+}
+
+.navbar-left, .navbar-right img {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-left img:hover, .navbar-right img:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  text-align: center;
+  gap: 8px;
 }
 
-/* Navigation Bar */
-.nav-bar {
-  position: sticky;
-  top: 0;
-  z-index: 1000; /* In front of banner */
-  background: white;
-  height: 100px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+.logo-icon{
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-/* Left and Right Sections */
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Center Logo */
-.nav-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* Logo Icon */
-.logo-icon {
-    width: 30px;
-    height: 30px;
-}
-
-/* Logo Text */
 .logo-text {
-    font-size: 25px;
-    font-weight: bold;
-    color: black;
-}
-
-/* Icons */
-.icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    object-fit: contain;
+  font-size: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  color: black;
 }
 
 /* Main Image Section */
@@ -371,4 +376,94 @@
     text-align: center;
     font-size: 13px;
     opacity: 0.8;
-  } 
+  }
+
+/* The sidebar menu */
+
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+body {
+  transition: margin-left .5s; /* If you want a transition effect */
+}
+
+/* Sidebar styles */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2000; 
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent background */
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.3s;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2); /* Adding shadow for floating effect */
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  color: #4CAF50; /* Eco-friendly green color */
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+/* When sidebar is open */
+.sidebar.open {
+  width: 250px;
+}
+
+/* Main content won't be pushed - stays in place */
+body {
+  transition: margin-left 0.3s;
+}
+
+/* Profile dropdown styling */
+.profile-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.profile-dropdown a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.profile-dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+.profile-dropdown.show {
+  display: block;
+}
