@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swaps Inspect</title>
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="/frontend/css/header.css">
@@ -13,6 +14,7 @@
   <script src="/frontend/components/component-loader.js" defer></script>
   <script src="./index.js" defer></script>
 </head>
+
 <body>
   <!-- Header will be loaded here -->
   <div id="header-container"></div>
@@ -25,7 +27,12 @@
 
     <!-- Product Info -->
     <div class="product-info">
-      <h1>Toothpaste Tablets w/ Fluoride - Mint</h1>
+      <div class="title-container">
+        <h1>Toothpaste Tablets w/ Fluoride - Mint</h1>
+        <button class="edit-title" onclick="window.location.href = '/frontend/components/create swap/index.html?id=xxx'">
+          <img src="/frontend/images/edit.png" alt="Edit" class="edit-icon">
+        </button>
+      </div>
       <p class="author">by <span>Andre Lau</span></p>
 
       <ul class="product-description">
@@ -55,15 +62,19 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="action-buttons">
-        <button class="chat-btn">CHAT</button>
+      <!-- <div class="action-buttons">
+        <button class="chat-btn">FAVOURITE</button>
         <button class="swap-btn">REQUEST SWAP</button>
+      </div> -->
+      <div class="action-buttons">
+        <button class="swap-btn">REMOVE ITEM</button>
       </div>
     </div>
   </div>
 
-    <!-- Footer will be loaded here -->
-    <div id="footer-container"></div>
+  <!-- Footer will be loaded here -->
+  <div id="footer-container"></div>
 
 </body>
+
 </html>

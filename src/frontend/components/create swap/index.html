@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,38 +14,39 @@
     <script src="/frontend/components/component-loader.js" defer></script>
     <script src="./index.js" defer></script>
 </head>
+
 <body>
     <!-- Header will be loaded here -->
     <div id="header-container"></div>
 
     <main>
-        <img src = "../../images/Toothpaste.png" alt = "garden" class = "garden-img">
-        <div class = "form">
-            <div class = "title-container">
+        <img src="/frontend/images/Toothpaste.png" alt="garden" class="garden-img">
+        <div class="form">
+            <div class="title-container">
                 <h2><strong>My New Swap</strong></h2>
-                <button class ="edit-title">
-                    <img src= "../../images/edit.png" alt = "Edit" class = "edit-icon">
-                </button>
+                
             </div>
+            <form action="/backend/swaps/create_swap.php" method="post">
+                <section class="input-box description-box">
+                    <p><strong>Description</strong></p>
+                    <input type="Description" placeholder="Description here" required>
+                </section>
 
-            <section class = "input-box description-box">
-                <p><strong>Description</strong></p>
-                <input type = "Description" placeholder = "Description here" required>
-            </section>
-
-            <section class = "input-box wishlist-box">
-                <p><strong>My Wishlist</strong></p>
-                <input type = "Wishlist" placeholder = "Wishlist here" required>
-            </section>
-            <section class = "input-box usernotes-box">
-                <p><strong>User Notes</strong></p>
-                <input type = "User Notes" placeholder = "User Notes Here" required>
-            </section>
-            <button class = "create-swap">Create Swap</button>
+                <section class="input-box wishlist-box">
+                    <p><strong>My Wishlist</strong></p>
+                    <input type="Wishlist" placeholder="Wishlist here" required>
+                </section>
+                <section class="input-box usernotes-box">
+                    <p><strong>User Notes</strong></p>
+                    <input type="User Notes" placeholder="User Notes Here" required>
+                </section>
+                <button type="submit" class="button button-primary create-swap">Create Swap</button>
+            </form>
         </div>
     </main>
 
     <!-- Footer will be loaded here -->
     <div id="footer-container"></div>
 </body>
+
 </html>
