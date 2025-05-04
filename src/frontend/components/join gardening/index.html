@@ -4,35 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gardening With You</title>
-    <link rel = "stylesheet" href = "index.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/frontend/css/header.css">
+    <link rel="stylesheet" href="/frontend/css/footer.css">
+    <link rel="stylesheet" href="/frontend/css/common.css">
+    <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
+    <!-- Load the component loader script -->
+    <script src="/frontend/components/component-loader.js" defer></script>
+    <script src="./index.js" defer></script>
 </head>
 <body>
-    <div class="shipping-notice">
-        Free shipping for all orders above 50 MYR!
-    </div>
-    
-    <header class="sticky-navbar">
-        <div class = "navbar">
-            <div class = "navbar-left">
-                <img src = "../../images/burgerMenu.png" alt = "Menu">
-                <img src = "../../images/search.png" alt = "Search">
-            </div>
-            <div class = "logo">
-                <img src="../../images/Ellipse 1.svg" alt="Logo" class="logo-icon">
-                <span class="logo-text">ECOCOM</span>
-            </div>
-            <div class = "navbar-right">
-                <img src = "../../images/shoppingBag.png" alt = "Cart">
-                <img src = "../../images/profile.png" alt = "Profile">
-            </div>
-        </div>
-    </header>
+    <!-- Header will be loaded here -->
+    <div id="header-container"></div>
 
     <main>
         <img src = "../../images/garden.png" alt = "garden" class = "garden-img">
     </div>
 
-      
+
     <!-- Gardening Info -->
     <div class="gardening-info">
         <h1>Gardening in Pavilion</h1>
@@ -46,15 +35,15 @@
             <p>Every Wednesday, 7.00 a.m. - 9.00 a.m.</p>
           </ul>
         </div>
-        
+
 
         <!-- Venue & Time Box -->
         <div class="box description">
             <strong>Description</strong>
             <ul>
             <p>
-                Join our vibrant community garden where neighbors come together to grow fresh, organic produce while sharing knowledge, tools, and friendship. 
-                Whether you're an experienced gardener or just starting out, there’s a plot for everyone. 
+                Join our vibrant community garden where neighbors come together to grow fresh, organic produce while sharing knowledge, tools, and friendship.
+                Whether you're an experienced gardener or just starting out, there’s a plot for everyone.
                 Let’s cultivate not only plants but also a greener, healthier community.
             </p>
             </ul>
@@ -62,44 +51,7 @@
         <button class = "join-garden">Join Gardening</button>
     </main>
 
-    <footer>
-        <div>
-            <h4>Explore</h4>
-            <ul>
-                <li><a href= "#" >Product Swap</a></li>
-                <li><a href= "#" >My Product</a></li>
-                <li><a href= "#" >Swap History</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>Help</h4>
-            <ul>
-                <li><a href= "#" >Help Center</a></li>
-                <li><a href= "#" >Returns & Warranty</a></li>
-                <li><a href= "#" >Contact Us</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>About</h4>
-            <ul>
-                <li><a href= "#" >About Us</a></li>
-                <li><a href= "#" >Impact</a></li>
-            </ul>
-        </div>
-        <div>
-            <h4>My Account</h4>
-            <ul>
-                <li><a href= "#" >Profile</a></li>
-                <li><a href= "#" >Settings</a></li>
-                <li><a href= "#" >Logout</a></li>
-            </ul>
-        </div>
-    </footer>
-
-    <hr class = "footer-divider">
-
-    <div class = "copyright">
-        <p>Copyright @ YYYY www.example.com. All Right Reserved.</p>
-    </div>
+    <!-- Footer will be loaded here -->
+    <div id="footer-container"></div>
 </body>
 </html>
