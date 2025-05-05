@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3>${item.name}</h3>
                     <p>${item.description}</p>
                     <div class="item-actions">
-                        <button class="view-btn" onclick="window.location.href='/src/frontend/components/swapsinspect/index.html?id=${item.id}'">View Item</button>
+                        <button class="view-btn" onclick="window.location.href='/src/frontend/components/swaps_inspect/index.html?id=${item.id}'">View Item</button>
                         <button class="remove-btn" data-id="${item.id}">
                             <i class="fas fa-trash"></i>
                         </button>
