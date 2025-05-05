@@ -1,5 +1,5 @@
 <?php
-// require_once "conn.php";
+require_once "conn.php";
 /**
  * Database Connection for EcoCom Project
  *
