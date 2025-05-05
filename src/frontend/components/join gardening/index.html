@@ -52,10 +52,14 @@
                 </ul>
             </div>
             <div class="garden-buttons">
-                <button class="join-garden" id="joinButton">Join Gardening</button>
+                <button class="button button-primary join-garden" id="joinButton">Join Gardening</button>
                 <div class="post-join-buttons" id="postJoinButtons" style="display: none;">
-                    <button class="unjoin-garden">Unjoin</button>
-                    <button class="view-garden">View Garden</button>
+                    <a href="/src/frontend/components/gardening/index.html" style="text-decoration: none;display:flex;flex-grow:1;">
+                        <button class="button button-primary view-garden">
+                            View Garden
+                        </button>
+                    </a>
+                    <button class="button unjoin-garden">Unjoin Garden</button>
                 </div>
             </div>
     </main>
@@ -64,16 +68,16 @@
     <div id="footer-container"></div>
 
     <script>
-        document.getElementById('joinButton').addEventListener('click', function() {
+        document.getElementById('joinButton').addEventListener('click', function () {
             // Hide the join button
             this.style.display = 'none';
-            
+
             // Show the unjoin and view garden buttons
             document.getElementById('postJoinButtons').style.display = 'flex';
         });
-        
+
         // You might want to add functionality for the unjoin button to reverse this process
-        document.querySelector('.unjoin-garden').addEventListener('click', function() {
+        document.querySelector('.unjoin-garden').addEventListener('click', function () {
             document.getElementById('joinButton').style.display = 'block';
             document.getElementById('postJoinButtons').style.display = 'none';
         });
