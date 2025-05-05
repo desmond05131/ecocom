@@ -20,70 +20,16 @@ function initializeCalendar() {
   // In a real application, this would likely come from an API
   const recurringEvents = [
     {
-      title: 'Klang Valley Recycling',
-      daysOfWeek: [3], // Wednesday (0=Sunday, 1=Monday, etc.)
-      startTime: '07:00:00',
-      endTime: '09:00:00',
-      startRecur: '2023-01-01',
-      endRecur: '2023-12-31',
-      extendedProps: {
-        location: 'Jalan Teknologi 5, Taman Teknologi Malaysia, Kuala Lumpur',
-        type: 'recycling',
-        description: 'Weekly recycling program for paper, plastic, glass, and metal'
-      }
-    },
-    {
       title: 'Gardening in Pavilion',
       daysOfWeek: [3], // Wednesday
       startTime: '07:00:00',
       endTime: '09:00:00',
-      startRecur: '2023-01-01',
-      endRecur: '2023-12-31',
+      startRecur: '2025-01-01',
+      endRecur: '2025-12-31',
       extendedProps: {
         location: 'Jalan Teknologi 5, Taman Teknologi Malaysia, Kuala Lumpur',
         type: 'gardening',
         description: 'Community gardening session led by Darren Tong'
-      }
-    },
-    {
-      title: 'Eco Swap Meet',
-      daysOfWeek: [6], // Saturday
-      startTime: '10:00:00',
-      endTime: '14:00:00',
-      startRecur: '2023-01-01',
-      endRecur: '2023-12-31',
-      extendedProps: {
-        location: 'Community Center, Kuala Lumpur',
-        type: 'community',
-        description: 'Bring items to swap with other community members'
-      }
-    },
-    {
-      title: 'Composting Workshop',
-      daysOfWeek: [0], // Sunday
-      startTime: '15:00:00',
-      endTime: '16:30:00',
-      startRecur: '2023-01-01',
-      endRecur: '2023-12-31',
-      frequency: 'biweekly', // Custom property for display purposes
-      extendedProps: {
-        location: 'Urban Garden, Petaling Jaya',
-        type: 'gardening',
-        description: 'Learn how to create and maintain a compost system'
-      }
-    },
-    {
-      title: 'E-Waste Collection',
-      daysOfWeek: [6], // Saturday
-      startTime: '09:00:00',
-      endTime: '12:00:00',
-      startRecur: '2023-01-01',
-      endRecur: '2023-12-31',
-      frequency: 'monthly', // First Saturday of each month
-      extendedProps: {
-        location: 'Central Mall Parking Lot, Kuala Lumpur',
-        type: 'recycling',
-        description: 'Monthly collection of electronic waste for proper recycling'
       }
     }
   ];
