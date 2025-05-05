@@ -54,6 +54,10 @@
     gap: 8px;
 }
 
+.header-logo a {
+    text-decoration: none;
+}
+
 .header-logo-icon {
     width: 24px;
     height: 24px;
