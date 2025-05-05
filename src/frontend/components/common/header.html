@@ -15,7 +15,7 @@
         <a href="#">All Community Gardening</a>
         <a href="#">My Garden</a>
     </div>
-    
+
     <button class="swap">Eco-friendly Product Swap
         <i class="fa fa-caret-down"></i>
     </button>
@@ -43,8 +43,47 @@
         </div>
 
         <div class="header-navbar-right">
-            <img src="/src/frontend/images/Inbox.svg" alt="Inbox Icon"
-                style="width: 30px; height: 30px; position: relative; top: -1px;" class="icon">
+            <div class="header-notification-container">
+                <div class="notification-icon-wrapper">
+                    <img src="/src/frontend/images/notification.svg" alt="Notification Icon"
+                        style="width: 30px; height: 30px; position: relative; top: -1px;" class="icon" id="notificationBtn">
+                    <!-- PHP will render the actual count here -->
+                    <span class="notification-badge" id="notificationBadge">0</span>
+                </div>
+                <div class="header-notification-dropdown" id="notificationDropdown">
+                    <div class="notification-header">
+                        <h3>Notifications</h3>
+                    </div>
+                    <div class="notification-list" id="notificationList">
+                        <!-- PHP will render notifications here -->
+                        <!-- Example notification item for swap request -->
+                        <div class="notification-item" data-id="1" data-type="swap_request">
+                            <div class="notification-content">
+                                <p><strong>John Doe</strong> wants to swap <strong>Bamboo Toothbrush</strong> for your <strong>Toothpaste Tablets</strong></p>
+                                <span class="notification-time">2 hours ago</span>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="accept-btn" data-id="1">Yes</button>
+                                <button class="reject-btn" data-id="1">No</button>
+                            </div>
+                        </div>
+                        <!-- Example notification item for garden exchange -->
+                        <div class="notification-item" data-id="2" data-type="garden_exchange">
+                            <div class="notification-content">
+                                <p><strong>Jane Smith</strong> wants to exchange for your <strong>Homegrown Cucumbers</strong></p>
+                                <span class="notification-time">3 hours ago</span>
+                            </div>
+                            <div class="notification-actions">
+                                <button class="accept-btn" data-id="2">Yes</button>
+                                <button class="reject-btn" data-id="2">No</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notification-empty hidden">
+                        <p>No new notifications</p>
+                    </div>
+                </div>
+            </div>
             <div class="header-profile-container">
                 <img src="/src/frontend/images/profile.png" alt="Person Icon" class="icon" id="profileBtn">
                 <div class="header-profile-dropdown" id="profileDropdown">

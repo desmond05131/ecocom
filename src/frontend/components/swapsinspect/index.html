@@ -62,12 +62,40 @@
       </div>
 
       <!-- Action Buttons -->
-      <!-- <div class="action-buttons">
-        <button class="chat-btn">FAVOURITE</button>
-        <button class="swap-btn">REQUEST SWAP</button>
-      </div> -->
       <div class="action-buttons">
+        <button class="fav-btn" id="favorite-btn">FAVOURITE</button>
+        <button class="swap-btn">REQUEST SWAP</button>
+      </div>
+      <!-- <div class="action-buttons">
         <button class="swap-btn">REMOVE ITEM</button>
+      </div> -->
+    </div>
+  </div>
+
+  <!-- Swap Request Modal -->
+  <div id="swap-request-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Select Item to Swap</h3>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="swap-request-form" action="/src/backend/swaps/request_swap.php" method="post">
+          <div class="form-group">
+            <p>Please select one of your items to swap with this item:</p>
+            <div class="items-grid" id="user-items-grid">
+              <!-- This will be populated with the user's items from the backend -->
+              <div class="loading-items">Loading your items...</div>
+            </div>
+            <p class="form-note">Only items you've created will appear here. <a href="/src/frontend/components/create swap/index.html">Create a new item</a> if you don't have any to swap.</p>
+          </div>
+          <input type="hidden" name="swap_item_id" id="selected-item-id" value="">
+          <input type="hidden" name="requested_item_id" value="xxx">
+          <div class="form-actions">
+            <button type="button" id="cancel-swap-btn" class="btn-secondary">Cancel</button>
+            <button type="submit" id="confirm-swap-btn" class="btn-primary" disabled>Confirm Swap</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

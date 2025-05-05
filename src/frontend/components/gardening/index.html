@@ -30,11 +30,18 @@
         </div>
         <div class="post-input-container">
           <textarea id="post-content" placeholder="Write your garden tips or post your home grown produce..."></textarea>
+          <div id="post-image-preview-container" class="post-image-preview hidden">
+            <img id="post-image-preview" src="#" alt="Image Preview">
+            <button type="button" id="remove-post-image-btn" class="remove-btn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
           <div class="post-options">
             <div class="post-attachments">
               <button class="attachment-btn" id="photo-btn">
                 <i class="fas fa-image"></i> Photo
               </button>
+              <input type="file" id="post-image-input" accept="image/*" style="display: none;">
               <div class="exchangeable-checkbox">
                 <input type="checkbox" id="exchangeable-check">
                 <label for="exchangeable-check">Mark as home grown produce</label>
@@ -146,6 +153,40 @@
 
   <!-- Footer will be loaded here -->
   <div id="footer-container"></div>
+
+  <!-- Exchange Request Modal -->
+  <div id="exchange-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Request Exchange</h3>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form id="exchange-form">
+          <div class="form-group">
+            <label for="exchange-message">Message</label>
+            <textarea id="exchange-message" placeholder="Describe what you'd like to exchange and any other details..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exchange-image">Upload Image (Optional)</label>
+            <div class="image-upload-container">
+              <input type="file" id="exchange-image" accept="image/*">
+              <div id="image-preview-container" class="hidden">
+                <img id="exchange-image-preview" src="#" alt="Preview">
+                <button type="button" id="remove-image-btn" class="remove-btn">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="button" id="cancel-exchange-btn">Cancel</button>
+            <button type="submit" class="button button-primary" id="submit-exchange-btn">Submit Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
