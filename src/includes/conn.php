@@ -12,7 +12,7 @@ $host = 'localhost';
 $user = 'root';
 $pass = 'root'; // Update with your MySQL password if needed
 $charset = 'utf8mb4';
-$sqlFilePath = __DIR__ . '/../../frontend/sql/ecocom_db.sql';
+$sqlFilePath = __DIR__ . '/../sql/ecocom_db.sql';
 
 // Connect to MySQL server without selecting a database
 $conn = new mysqli($host, $user, $pass);
@@ -48,6 +48,7 @@ $statements = array_filter(
 
 // Execute each statement
 foreach ($statements as $statement) {
+    // echo "Statement: {$statement}<br>";
     if ($conn->query($statement) === TRUE) {
         // Extract table name for logging (simple regex to get table name after CREATE TABLE IF NOT EXISTS)
         if (preg_match('/CREATE\s+TABLE\s+IF\s+NOT\s+EXISTS\s+(\w+)/i', $statement, $matches)) {
