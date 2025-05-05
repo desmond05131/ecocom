@@ -28,7 +28,7 @@ require_once realpath(__DIR__ . '/../../includes/auth.php');
         <a href="#">All Swaps</a>
         <a href="#">My Swaps</a>
     </div> -->
-    <a href="/src/pages/gardening/index.php">Gardening</a>
+    <a href="/src/pages/community/index.php">Gardening</a>
     <a href="/src/pages/swaps/index.php">Swaps</a>
 </div>
 </div>
