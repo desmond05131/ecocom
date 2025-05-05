@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Swap</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/frontend/css/header.css">
-    <link rel="stylesheet" href="/frontend/css/footer.css">
-    <link rel="stylesheet" href="/frontend/css/common.css">
+    <link rel="stylesheet" href="/src/frontend/css/header.css">
+    <link rel="stylesheet" href="/src/frontend/css/footer.css">
+    <link rel="stylesheet" href="/src/frontend/css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
     <!-- Load the component loader script -->
-    <script src="/frontend/components/component-loader.js" defer></script>
+    <script src="/src/frontend/components/component-loader.js" defer></script>
     <script src="./index.js" defer></script>
 </head>
 
@@ -19,14 +19,23 @@
     <!-- Header will be loaded here -->
     <div id="header-container"></div>
 
+    <form action="/src/backend/swaps/create_swap.php" method="post">
     <main>
-        <img src="/frontend/images/Toothpaste.png" alt="garden" class="garden-img">
-        <div class="form">
-            <div class="title-container">
-                <h2><strong>My New Swap</strong></h2>
-                
+            <div class="image-upload-box"
+                style="border: 2px solid #ccc; padding: 150px; border-radius: 16px; display: inline-block;">
+                <div class="image-upload">
+                    <label for="image-input" class="image-label">
+                        <img id="preview-image" src="/src/frontend/images/placeholder.png" alt="Put your image here"
+                            class="garden-img">
+                    </label>
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                </div>
             </div>
-            <form action="/backend/swaps/create_swap.php" method="post">
+            <div class="form">
+                <section class="input-box name-box">
+                    <p><strong>Item Name</strong></p>
+                    <input type="Item Name" placeholder="Item Name here" required>
+                </section>
                 <section class="input-box description-box">
                     <p><strong>Description</strong></p>
                     <input type="Description" placeholder="Description here" required>
@@ -41,9 +50,9 @@
                     <input type="User Notes" placeholder="User Notes Here" required>
                 </section>
                 <button type="submit" class="button button-primary create-swap">Create Swap</button>
-            </form>
-        </div>
-    </main>
+            </div>
+        </main>
+    </form>
 
     <!-- Footer will be loaded here -->
     <div id="footer-container"></div>

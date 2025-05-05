@@ -116,13 +116,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load header component if header-container exists
     const headerContainer = document.getElementById('header-container');
     if (headerContainer) {
-        loadComponent('header-container', '/frontend/components/common/header.html');
+        loadComponent('header-container', '/src/frontend/components/common/header.html');
     }
 
     // Load footer component if footer-container exists
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer) {
-        loadComponent('footer-container', '/frontend/components/common/footer.html');
+        loadComponent('footer-container', '/src/frontend/components/common/footer.html');
     }
 
     // Add other common components here as needed

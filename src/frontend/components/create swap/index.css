@@ -38,7 +38,11 @@ main {
     text-align: left;
 }
 
-.title-container {
+form {
+    width:100%;
+}
+
+/* .title-container {
     display: flex;
     align-items: baseline;
     margin-bottom: 1rem;
@@ -46,10 +50,33 @@ main {
     font-family: inherit;
 }
 
+.edit-title {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: -2px;
+}
+
+.edit-icon {
+    width: 22px;
+    height: 22px;
+    margin-left: 2px;
+    transition: transform 0.2s ease;
+    vertical-align: middle;
+}
+
+.edit-title:hover .edit-icon {
+    transform: scale(1.1);
+} */
+
 .input-box {
     margin-bottom: 1rem;
 }
 
+.name-box input,
 .description-box input,
 .wishlist-box input,
 .usernotes-box input {
