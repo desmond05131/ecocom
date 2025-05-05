@@ -62,6 +62,33 @@ $user_id = getCurrentUserId();
           }
         }";
       }
+
+      // Get recycling events the user has joined
+      $stmt = $conn->prepare("SELECT r.* FROM recycling r 
+                              JOIN recycling_participants rp ON r.id = rp.recycling_id 
+                              WHERE rp.user_id = ?");
+      $stmt->bind_param("i", $user_id);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      while ($recycling = $result->fetch_assoc()) {
+        if (!$first) {
+          echo ",";
+        }
+        $first = false;
+
+        echo "{
+          title: '" . addslashes($recycling['title']) . "',
+          start: '" . $recycling['event_date'] . "',
+          end: '" . $recycling['event_end_date'] . "',
+          allDay: false,
+          extendedProps: {
+            location: '" . addslashes($recycling['location']) . "',
+            type: 'recycling',
+            description: '" . addslashes($recycling['description']) . "'
+          }
+        }";
+      }
       ?>
     ];
   </script>
@@ -87,6 +114,10 @@ $user_id = getCurrentUserId();
       <div class="legend-item">
         <span class="legend-color gardening"></span>
         <span class="legend-text">Gardening Events</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-color recycling"></span>
+        <span class="legend-text">Recycling Events</span>
       </div>
     </div>
   </main>

@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(100) NOT NULL UNIQUE,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    birthdate DATE NOT NULL
+    birthdate DATE NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
 );
 CREATE TABLE IF NOT EXISTS swaps (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,25 +55,14 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS garden_posts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    content VARCHAR(3000) NOT NULL,
-    image_url VARCHAR(255),
-    is_exchangeable BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
-
-CREATE TABLE IF NOT EXISTS garden (
+CREATE TABLE IF NOT EXISTS gardens (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     title VARCHAR(150) NOT NULL,
     address VARCHAR(255) NOT NULL,
     description VARCHAR(3000),
-    start_date DATETIME NOT NULL,
+    start_date DATETIME,
     end_date DATETIME,
-    location VARCHAR(255),
     recurring_day VARCHAR(20),
     recurring_start_time TIME,
     recurring_end_time TIME,
@@ -85,8 +75,20 @@ CREATE TABLE IF NOT EXISTS garden_participants (
     user_id INT NOT NULL,
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (garden_id, user_id),
-    FOREIGN KEY (garden_id) REFERENCES garden(id) ON DELETE CASCADE,
+    FOREIGN KEY (garden_id) REFERENCES gardens(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS garden_posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    garden_id INT NOT NULL,
+    content VARCHAR(3000) NOT NULL,
+    image_url VARCHAR(255),
+    is_exchangeable BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (garden_id) REFERENCES gardens(id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS recycling (
@@ -95,7 +97,17 @@ CREATE TABLE IF NOT EXISTS recycling (
     description VARCHAR(3000),
     location VARCHAR(255) NOT NULL,
     item_to_recycle VARCHAR(3000),
-    contact VARCHAR(100)
+    contact VARCHAR(100),
+    event_date DATETIME NOT NULL,
+    event_end_date DATETIME NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS recycling_participants (
+    user_id INT NOT NULL,
+    recycling_id INT NOT NULL,
+    PRIMARY KEY (recycling_id, user_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (recycling_id) REFERENCES recycling(id) ON DELETE CASCADE
 );
 
 
@@ -117,5 +129,6 @@ CREATE INDEX idx_notifications_user_id ON notifications(user_id);
 CREATE INDEX idx_notifications_type ON notifications(type);
 CREATE INDEX idx_blog_posts_author ON blog_posts(author_id);
 CREATE INDEX idx_garden_posts_user ON garden_posts(user_id);
-CREATE INDEX idx_garden_user ON garden(user_id);
-CREATE INDEX idx_garden_dates ON garden(start_date, end_date);
+CREATE INDEX idx_garden_posts_garden ON garden_posts(garden_id);
+CREATE INDEX idx_gardens_user ON gardens(user_id);
+CREATE INDEX idx_gardens_dates ON gardens(start_date, end_date);

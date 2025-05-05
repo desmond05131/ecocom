@@ -84,9 +84,10 @@ $adminUsername = 'admin';
 $adminPassword = password_hash('admin', PASSWORD_DEFAULT);
 $adminEmail = 'admin@admin.com';
 $adminBirthdate = '1990-01-01';
+$adminIsAdmin = true;
 
-$stmt = $conn->prepare("INSERT INTO users (email, username, password, birthdate) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $adminEmail, $adminUsername, $adminPassword, $adminBirthdate);
+$stmt = $conn->prepare("INSERT INTO users (email, username, password, birthdate, is_admin) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $adminEmail, $adminUsername, $adminPassword, $adminBirthdate, $adminIsAdmin);
 $stmt->execute();
 echo "Admin user created successfully.<br>";
 
@@ -127,6 +128,20 @@ for ($i = 0; $i < 4; $i++) {
     echo "Garden '{$gardenNames[$i]}' created successfully.<br>";
 }
 
+
+// Create 1 recycling event
+$recyclingTitle = 'Community Recycling Day';
+$recyclingDescription = 'Join us for a day of recycling and environmental awareness.';
+$recyclingLocation = 'Taman Tugu, Jalan Parlimen, 50480 Kuala Lumpur, Malaysia';
+$recyclingItemsToRecycle = 'Paper, Plastic, Electronics, Glass';
+$recyclingContact = 'recycling@ecocom.org';
+$recyclingDate = '2025-05-22 09:00:00';
+$recyclingEndDate = '2025-05-22 12:00:00';
+
+$stmt = $conn->prepare("INSERT INTO recycling (title, description, location, item_to_recycle, contact, event_date, event_end_date) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("sssssss", $recyclingTitle, $recyclingDescription, $recyclingLocation, $recyclingItemsToRecycle, $recyclingContact, $recyclingDate, $recyclingEndDate);
+$stmt->execute();
+echo "Recycling event '{$recyclingTitle}' created successfully.<br>";
 
 // Close connection
 $conn->close();

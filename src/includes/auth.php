@@ -45,4 +45,8 @@ function getCurrentUserId() {
 function getCurrentUsername() {
     return isset($_SESSION['username']) ? $_SESSION['username'] : null;
 }
+
+function getCurrentUserIsAdmin() {
+    return isset($_SESSION['is_admin']) ? $_SESSION['is_admin'] : null;
+}
 ?>
