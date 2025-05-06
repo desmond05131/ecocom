@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModalBtn = document.querySelector('.close-modal');
     const swapForm = document.getElementById('swap-request-form');
     const swapBtn = document.querySelector('.swap-btn');
-    const favoriteBtn = document.getElementById('favorite-btn');
+    const favouriteBtn = document.getElementById('favourite-btn');
     const cancelSwapBtn = document.getElementById('cancel-swap-btn');
     const confirmSwapBtn = document.getElementById('confirm-swap-btn');
     const userItemsGrid = document.getElementById('user-items-grid');
@@ -162,46 +162,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Handle favorite button click
-    if (favoriteBtn) {
-        // Check if item is already in favorites (using localStorage for demo)
-        const checkFavoriteStatus = () => {
-            const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-            const isFavorite = favorites.some(item => item.id === currentItemId);
+    // Handle favourite button click
+    if (favouriteBtn) {
+        // Check if item is already in favourites (using localStorage for demo)
+        const checkfavouriteStatus = () => {
+            const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+            const isfavourite = favourites.some(item => item.id === currentItemId);
 
-            if (isFavorite) {
-                favoriteBtn.classList.add('active');
-                favoriteBtn.textContent = 'FAVOURITED';
+            if (isfavourite) {
+                favouriteBtn.classList.add('active');
+                favouriteBtn.textContent = 'FAVOURITED';
             } else {
-                favoriteBtn.classList.remove('active');
-                favoriteBtn.textContent = 'FAVOURITE';
+                favouriteBtn.classList.remove('active');
+                favouriteBtn.textContent = 'FAVOURITE';
             }
         };
 
         // Initial check
-        checkFavoriteStatus();
+        checkfavouriteStatus();
 
-        // Toggle favorite status on click
-        favoriteBtn.addEventListener('click', function() {
-            const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
-            const isFavorite = favorites.some(item => item.id === currentItemId);
+        // Toggle favourite status on click
+        favouriteBtn.addEventListener('click', function() {
+            const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+            const isfavourite = favourites.some(item => item.id === currentItemId);
 
-            if (isFavorite) {
-                // Remove from favorites
-                const updatedFavorites = favorites.filter(item => item.id !== currentItemId);
-                localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
-                favoriteBtn.classList.remove('active');
-                favoriteBtn.textContent = 'FAVOURITE';
+            if (isfavourite) {
+                // Remove from favourites
+                const updatedfavourites = favourites.filter(item => item.id !== currentItemId);
+                localStorage.setItem('favourites', JSON.stringify(updatedfavourites));
+                favouriteBtn.classList.remove('active');
+                favouriteBtn.textContent = 'FAVOURITE';
 
                 // Show feedback
-                showToast('Removed from favorites');
+                showToast('Removed from favourites');
             } else {
-                // Add to favorites
+                // Add to favourites
                 const itemTitle = document.querySelector('.product-info h1').textContent;
                 const itemImage = document.querySelector('.product-image img').src;
                 const itemDescription = document.querySelector('.product-description').textContent.substring(0, 100) + '...';
 
-                favorites.push({
+                favourites.push({
                     id: currentItemId,
                     name: itemTitle,
                     image: itemImage,
@@ -209,12 +209,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     addedAt: new Date().toISOString()
                 });
 
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-                favoriteBtn.classList.add('active');
-                favoriteBtn.textContent = 'FAVOURITED';
+                localStorage.setItem('favourites', JSON.stringify(favourites));
+                favouriteBtn.classList.add('active');
+                favouriteBtn.textContent = 'FAVOURITED';
 
                 // Show feedback
-                showToast('Added to favorites');
+                showToast('Added to favourites');
             }
         });
     }
