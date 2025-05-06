@@ -194,7 +194,7 @@
     z-index: 1000;
     display: none;
     max-height: 400px;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .header-notification-dropdown.active {
@@ -274,6 +274,33 @@
 
 .notification-empty.hidden {
     display: none;
+}
+
+/* Notification success and error messages */
+.notification-success,
+.notification-error {
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.notification-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.notification-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Form styling for notification actions */
+.notification-form {
+    display: flex;
+    gap: 10px;
 }
 
 /* Animation for new notifications */

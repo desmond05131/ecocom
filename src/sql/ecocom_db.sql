@@ -16,9 +16,10 @@ CREATE TABLE IF NOT EXISTS swaps (
     item_name VARCHAR(150) NOT NULL,
     description VARCHAR(3000),
     category VARCHAR(50),
-    image_url VARCHAR(255),
+    image_url VARCHAR(255) NOT NULL,
     wish_list VARCHAR(3000),
     user_notes VARCHAR(3000),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -39,7 +40,7 @@ CREATE TABLE IF NOT EXISTS notifications (
     user_id INT NOT NULL,
     related_id INT,
     type ENUM('new_item', 'swap_request', 'request_accepted', 'request_rejected', 'garden_post', 'garden_join', 'garden_exchange') NOT NULL,
-    message VARCHAR(3000) NOT NULL,
+    message VARCHAR(3000),
     is_read BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -124,7 +125,7 @@ CREATE TABLE IF NOT EXISTS garden_exchange (
 
 
 
-CREATE TABLE IF NOT EXISTS user_favorites (
+CREATE TABLE IF NOT EXISTS user_favourites (
     user_id INT NOT NULL,
     item_id INT NOT NULL,
     PRIMARY KEY (user_id, item_id),

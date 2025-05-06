@@ -42,7 +42,7 @@ if (isset($_GET['my_swaps']) && $user_id) {
             WHERE status = 'accepted'
         ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
         WHERE s.user_id = ? AND sr.requested_item_id IS NULL
-        ORDER BY s.id DESC
+        ORDER BY s.created_at DESC
     ";
   $stmt = $conn->prepare($query);
   $stmt->bind_param("i", $user_id);
@@ -75,7 +75,7 @@ if (isset($_GET['my_swaps']) && $user_id) {
             WHERE status = 'accepted'
         ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
         WHERE s.category = ? AND sr.requested_item_id IS NULL
-        ORDER BY s.id DESC
+        ORDER BY s.created_at DESC
     ";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $selected_category);
@@ -92,7 +92,7 @@ if (isset($_GET['my_swaps']) && $user_id) {
             WHERE status = 'accepted'
         ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
         WHERE sr.requested_item_id IS NULL
-        ORDER BY s.id DESC
+        ORDER BY s.created_at DESC
     ";
   $stmt = $conn->prepare($query);
 }

@@ -43,21 +43,21 @@
       <img src="/src/images/program 1.png" alt="Program 1">
       <div class="card-text">
         <h3>Discover local recycling programmes<br>and collection schedules</h3>
-        <a href="/src/pages/recycling/index.html" class="card-link">Discover Now</a>
+        <a href="/src/pages/recycling/index.php" class="card-link">Discover Now</a>
       </div>
     </div>
     <div class="program-card">
       <img src="/src/images/program 2.png" alt="Program 2">
       <div class="card-text">
         <h3>7 tips to reduce energy consumption in<br>your home or workplace</h3>
-        <a href="/src/pages/blogs/index.html" class="card-link">Read the blog</a>
+        <a href="/src/pages/blogs/index.php" class="card-link">Read the blog</a>
       </div>
     </div>
     <div class="program-card">
       <img src="/src/images/program 3.png" alt="Program 3">
       <div class="card-text">
         <h3>10 gardening tips to make your garden<br>flourish</h3>
-        <a href="/src/pages/blogs/index.html" class="card-link">Read the blog</a>
+        <a href="/src/pages/blogs/index.php" class="card-link">Read the blog</a>
       </div>
     </div>
   </section>
@@ -67,35 +67,57 @@
     <h2>Recently Added Swaps</h2>
 
     <div class="swap-items">
-      <div class="swap-card">
-        <a href="/src/pages/swaps_inspect/index.html">
-        <img src="/src/images/Toothpaste.png" alt="Toothpaste">
-        </a>
-        <p class="product-name">Toothpaste Tablets<br>w/ Fluoride - Mint</p>
-      </div>
-      <div class="swap-card">
-        <a href="/src/pages/swaps_inspect/index.html">
-          <img src="/src/images/Toothpaste.png" alt="Toothpaste">
-          </a>
-        <p class="product-name">Toothpaste Tablets<br>w/ Fluoride - Mint</p>
-      </div>
-      <div class="swap-card">
-        <a href="/src/pages/swaps_inspect/index.html">
-          <img src="/src/images/Toothpaste.png" alt="Toothpaste">
-          </a>
-        <p class="product-name">Toothpaste Tablets<br>w/ Fluoride - Mint</p>
-      </div>
-      <div class="swap-card">
-        <a href="/src/pages/swaps_inspect/index.html">
-          <img src="/src/images/Toothpaste.png" alt="Toothpaste">
-          </a>
-        <p class="product-name">Toothpaste Tablets<br>w/ Fluoride - Mint</p>
-      </div>
+      <?php
+      // Include database connection
+      include_once './includes/conn.php';
+
+      // Fetch the most recent swap items that haven't been swapped yet
+      $query = "
+          SELECT s.*, u.username AS author_name
+          FROM swaps s
+          INNER JOIN users u ON s.user_id = u.id
+          LEFT JOIN (
+              SELECT requested_item_id, offered_item_id
+              FROM swap_requests
+              WHERE status = 'accepted'
+          ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
+          WHERE sr.requested_item_id IS NULL
+          ORDER BY s.created_at DESC
+          LIMIT 4
+      ";
+      $stmt = $conn->prepare($query);
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      $recent_swaps = [];
+      if ($result) {
+        while ($row = $result->fetch_assoc()) {
+          $recent_swaps[] = $row;
+        }
+      }
+
+      // Display the recent swap items
+      if (empty($recent_swaps)) {
+        echo '<div class="no-items"><p>No swap items available at the moment.</p></div>';
+      } else {
+        foreach ($recent_swaps as $swap) {
+          ?>
+          <div class="swap-card">
+            <a href="/src/pages/swaps_inspect/index.php?id=<?php echo $swap['id']; ?>">
+              <img src="<?php echo !empty($swap['image_url']) ? $swap['image_url'] : '/src/images/Toothpaste.png'; ?>"
+                alt="<?php echo htmlspecialchars($swap['item_name']); ?>">
+            </a>
+            <p class="product-name"><?php echo htmlspecialchars($swap['item_name']); ?></p>
+          </div>
+          <?php
+        }
+      }
+      ?>
     </div>
 
     <!-- Other swaps button -->
     <div class="see-more-wrapper">
-      <a href="/src/pages/swaps/index.html" class="see-more-button">See Other Swaps</a>
+      <a href="/src/pages/swaps/index.php" class="see-more-button">See Other Swaps</a>
     </div>
   </section>
 
