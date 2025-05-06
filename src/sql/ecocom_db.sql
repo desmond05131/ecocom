@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS notifications (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     related_id INT,
-    type ENUM('new_item', 'swap_request', 'request_accepted', 'request_rejected', 'garden_post', 'garden_join') NOT NULL,
+    type ENUM('new_item', 'swap_request', 'request_accepted', 'request_rejected', 'garden_post', 'garden_join', 'garden_exchange') NOT NULL,
     message VARCHAR(3000) NOT NULL,
     is_read BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -110,6 +110,18 @@ CREATE TABLE IF NOT EXISTS recycling_participants (
     FOREIGN KEY (recycling_id) REFERENCES recycling(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS garden_exchange (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    requester_id INT NOT NULL,
+    requested_post_id INT NOT NULL,
+    offered_post_id INT NOT NULL,
+    status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (requester_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (requested_post_id) REFERENCES garden_posts(id) ON DELETE CASCADE,
+    FOREIGN KEY (offered_post_id) REFERENCES garden_posts(id) ON DELETE CASCADE
+);
+
 
 
 CREATE TABLE IF NOT EXISTS user_favorites (
@@ -132,3 +144,6 @@ CREATE INDEX idx_garden_posts_user ON garden_posts(user_id);
 CREATE INDEX idx_garden_posts_garden ON garden_posts(garden_id);
 CREATE INDEX idx_gardens_user ON gardens(user_id);
 CREATE INDEX idx_gardens_dates ON gardens(start_date, end_date);
+CREATE INDEX idx_garden_exchange_requester ON garden_exchange(requester_id);
+CREATE INDEX idx_garden_exchange_requested_post ON garden_exchange(requested_post_id);
+CREATE INDEX idx_garden_exchange_offered_post ON garden_exchange(offered_post_id);
