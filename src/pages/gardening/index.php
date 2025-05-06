@@ -355,7 +355,7 @@ function formatTimeAgo($timestamp)
                 <input type="file" id="post-image-input" name="post_image" accept="image/*" class="hidden">
                 <div class="exchangeable-checkbox">
                   <input type="checkbox" id="exchangeable-check" name="exchangeable">
-                  <label>Mark as Exchangeable</label>
+                  <label for="exchangeable-check">Mark as Home Grown Produce</label>
                 </div>
               </div>
               <button type="submit" class="button button-primary" id="post-btn">Post</button>
