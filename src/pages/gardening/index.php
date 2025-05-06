@@ -232,7 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
                 $notification_type = 'garden_exchange';
 
                 $notification_stmt = $conn->prepare("INSERT INTO notifications (user_id, related_id, type, message) VALUES (?, ?, ?, ?)");
-                $notification_stmt->bind_param("iiss", $target_post['user_id'], $exchange_id, $notification_type, $notification_message);
+                $notification_stmt->bind_param("iiss", $target_post['user_id'], $exchange_id, $notification_type, $message);
                 $notification_stmt->execute();
 
                 // Store exchange request details in session for confirmation message
@@ -503,8 +503,8 @@ function formatTimeAgo($timestamp)
           </div>
 
           <div class="form-actions">
-            <button type="button" id="cancel-exchange-btn" class="btn-secondary">Cancel</button>
-            <button type="submit" class="btn-primary">Send Request</button>
+            <button type="button" id="cancel-exchange-btn" class="button button-secondary">Cancel</button>
+            <button type="submit" class="button button-primary">Send Request</button>
           </div>
         </form>
       </div>
