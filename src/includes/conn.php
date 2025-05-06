@@ -143,5 +143,93 @@ $stmt->bind_param("sssssss", $recyclingTitle, $recyclingDescription, $recyclingL
 $stmt->execute();
 echo "Recycling event '{$recyclingTitle}' created successfully.<br>";
 
+
+// Sample blog post data
+$blog_posts = [
+    [
+        'title' => '7 tips to reduce energy consumption in your home or workplace',
+        'content' => "Energy conservation is not just good for the environment; it's also great for your wallet. Here are seven practical tips to help you reduce energy consumption in your home or workplace:
+
+1. Switch to LED lighting: LED bulbs use up to 75% less energy than traditional incandescent bulbs and last much longer.
+
+2. Unplug electronics when not in use: Many devices continue to draw power even when turned off. This 'phantom energy' can account for up to 10% of your electricity bill.
+
+3. Optimize your thermostat: Adjust your thermostat by just a few degrees (lower in winter, higher in summer) to save significant energy. Consider a programmable thermostat for automatic adjustments.
+
+4. Seal air leaks: Check windows, doors, and ductwork for leaks and seal them with weatherstripping or caulk to prevent conditioned air from escaping.
+
+5. Maintain your HVAC system: Regular maintenance of heating and cooling systems ensures they operate efficiently. Replace filters regularly.
+
+6. Use energy-efficient appliances: When replacing appliances, look for ENERGY STAR certified models that use less electricity and water.
+
+7. Harness natural light: Open curtains during the day to use natural sunlight instead of artificial lighting, but be mindful of heat gain in summer.",
+        'author_id' => 1,
+        'image_url' => '/src/frontend/images/blogpic1.jpg',
+    ],
+    [
+        'title' => 'Understanding recycling symbols: What those numbers really mean',
+        'content' => "Recycling symbols can be confusing, but understanding them is crucial for proper waste management. Here's a breakdown of what those numbers inside the triangular recycling symbol actually mean:
+
+#1 PET (Polyethylene Terephthalate): Commonly used for water bottles and food containers. Highly recyclable and often accepted in curbside programs.
+
+#2 HDPE (High-Density Polyethylene): Found in milk jugs, detergent bottles, and toys. Also widely recyclable.
+
+#3 PVC (Polyvinyl Chloride): Used in pipes, vinyl siding, and some food packaging. More difficult to recycle and may contain harmful chemicals.
+
+#4 LDPE (Low-Density Polyethylene): Found in shopping bags, plastic wraps, and squeezable bottles. Increasingly recyclable but check local guidelines.
+
+#5 PP (Polypropylene): Used in yogurt containers, medicine bottles, and bottle caps. Moderately recyclable.
+
+#6 PS (Polystyrene/Styrofoam): Found in disposable cups, food containers, and packing materials. Difficult to recycle and rarely accepted in curbside programs.
+
+#7 Other: A catch-all category for plastics that don't fit into the above categories, including bioplastics and multi-layer materials. Generally difficult to recycle.
+
+Remember that recycling capabilities vary by location, so always check your local recycling guidelines to ensure you're recycling correctly.",
+        'author_id' => 1,
+        'image_url' => '/src/frontend/images/recycling-symbols.jpg',
+    ],
+    [
+        'title' => 'How to start your own community garden',
+        'content' => "Community gardens are wonderful ways to bring people together while growing fresh, healthy food. Here's how to start one in your neighborhood:
+
+1. Gather interested community members: Find like-minded individuals who share your passion for gardening and community building.
+
+2. Find suitable land: Look for vacant lots, park spaces, or other areas that could be converted into a garden. Ensure it gets adequate sunlight and has access to water.
+
+3. Secure permission: Contact the landowner or local government to obtain permission to use the space. You may need to create a formal agreement.
+
+4. Test the soil: Before planting, test the soil for contaminants, especially in urban areas. Your local extension office can help with this.
+
+5. Design your garden: Plan the layout, including individual plots, communal areas, pathways, and storage space for tools.
+
+6. Establish rules and responsibilities: Create clear guidelines for membership, fees, maintenance responsibilities, and conflict resolution.
+
+7. Build infrastructure: Install raised beds, irrigation systems, fencing, and tool storage as needed.
+
+8. Start planting: Begin with easy-to-grow crops that match your climate and season.
+
+9. Foster community: Organize regular workdays, workshops, and social events to build relationships among gardeners.
+
+10. Maintain and grow: Continuously evaluate what's working and what isn't, and be open to evolving your garden over time.
+
+Community gardens not only provide fresh produce but also create educational opportunities, improve neighborhood aesthetics, and strengthen community bonds.",
+        'author_id' => 1,
+        'image_url' => '/src/frontend/images/community-garden.jpg',
+    ],
+];
+
+// Insert sample blog posts
+$insert_query = "INSERT INTO blog_posts (title, content, author_id, image_url) VALUES (?, ?, ?, ?)";
+$stmt = $conn->prepare($insert_query);
+
+foreach ($blog_posts as $post) {
+    $stmt->bind_param("ssis", $post['title'], $post['content'], $post['author_id'], $post['image_url']);
+    if ($stmt->execute()) {
+        echo "Added blog post: {$post['title']}<br>";
+    } else {
+        echo "Error adding blog post: {$post['title']} - {$conn->error}<br>";
+    }
+}
+
 // Close connection
 $conn->close();
