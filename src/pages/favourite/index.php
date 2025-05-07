@@ -22,12 +22,17 @@ if (isset($_POST['unfavourite']) && isset($_POST['item_id'])) {
     }
 }
 
-// Fetch active favourite items
+// Fetch active favourite items (not exchanged)
 $active_items_query = "
     SELECT s.*, uf.user_id AS favourited
     FROM swaps s
     INNER JOIN user_favourites uf ON s.id = uf.item_id
-    WHERE uf.user_id = ?
+    LEFT JOIN (
+        SELECT requested_item_id, offered_item_id
+        FROM swap_requests
+        WHERE status = 'accepted'
+    ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
+    WHERE uf.user_id = ? AND sr.requested_item_id IS NULL
     ORDER BY s.id DESC
 ";
 
@@ -40,9 +45,28 @@ while ($row = $active_result->fetch_assoc()) {
     $active_items[] = $row;
 }
 
-// For this example, we'll consider all items as active
-// In a real application, you might have a status field or expiration date
+// Fetch expired favourite items (already exchanged)
+$expired_items_query = "
+    SELECT s.*, uf.user_id AS favourited
+    FROM swaps s
+    INNER JOIN user_favourites uf ON s.id = uf.item_id
+    INNER JOIN (
+        SELECT requested_item_id, offered_item_id
+        FROM swap_requests
+        WHERE status = 'accepted'
+    ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
+    WHERE uf.user_id = ?
+    ORDER BY s.id DESC
+";
+
+$expired_stmt = $conn->prepare($expired_items_query);
+$expired_stmt->bind_param("i", $user_id);
+$expired_stmt->execute();
+$expired_result = $expired_stmt->get_result();
 $expired_items = [];
+while ($row = $expired_result->fetch_assoc()) {
+    $expired_items[] = $row;
+}
 ?>
 
 <!DOCTYPE html>
@@ -131,7 +155,31 @@ $expired_items = [];
       <div class="items-grid" id="expired-items-grid">
         <?php if (count($expired_items) > 0): ?>
           <?php foreach ($expired_items as $item): ?>
-            <!-- Similar structure as active items -->
+            <div class="item-card expired" data-id="<?php echo $item['id']; ?>">
+              <div class="item-image">
+                <?php if (!empty($item['image_url'])): ?>
+                  <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['item_name']); ?>">
+                <?php else: ?>
+                  <div class="no-image">No Image</div>
+                <?php endif; ?>
+                <div class="expired-badge">Exchanged</div>
+              </div>
+              <div class="item-details">
+                <h3><?php echo htmlspecialchars($item['item_name']); ?></h3>
+                <p class="item-category"><span class="category-tag"><?php echo htmlspecialchars($item['category']); ?></span></p>
+                <p class="item-description"><?php echo htmlspecialchars(substr($item['description'], 0, 100)) . (strlen($item['description']) > 100 ? '...' : ''); ?></p>
+                <div class="item-actions">
+                  <button class="view-btn" onclick="location.href='../../pages/swaps_inspect/index.php?id=<?php echo $item['id']; ?>'">View Details</button>
+                  <form method="post" action="" class="unfavourite-form">
+                    <input type="hidden" name="item_id" value="<?php echo $item['id']; ?>">
+                    <input type="hidden" name="unfavourite" value="1">
+                    <button type="submit" class="unfavourite-btn" title="Remove from favourites">
+                      <i class="fas fa-heart"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
           <?php endforeach; ?>
         <?php else: ?>
           <div class="no-items-message" id="no-expired-items">
