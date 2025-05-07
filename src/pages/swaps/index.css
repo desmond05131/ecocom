@@ -86,11 +86,21 @@
 .product-card {
   background: white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card a {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-card img {
   width: 240px;
   margin-bottom: 10px;
+  object-fit: contain;
 }
 
 .product-card h4 {
