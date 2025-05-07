@@ -59,11 +59,12 @@ if (isset($_GET['my_swaps']) && $user_id) {
             FROM swap_requests
             WHERE status = 'accepted'
         ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
-        WHERE sr.requested_item_id IS NULL
+        WHERE sr.requested_item_id IS NULL AND s.user_id != ?
         ORDER BY RAND()
         LIMIT 10
     ";
     $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $user_id);
   } else {
     $query = "
         SELECT s.*, u.username AS author_name
@@ -175,9 +176,28 @@ if ($user_id) {
   }
 }
 
-// Count recommended items - we'll show up to 10 random items
-// If there are fewer than 10 total items, show the actual count
-$recommended_count = min(10, $total_swaps_count);
+
+// Get total count of recommended items (excluding exchanged items) - we'll show up to 10 random items
+$recommended_swaps_count = 0;
+$recommended_count_query = "
+    SELECT COUNT(*) as count
+    FROM swaps s
+    LEFT JOIN (
+        SELECT requested_item_id, offered_item_id
+        FROM swap_requests
+        WHERE status = 'accepted'
+    ) sr ON s.id = sr.requested_item_id OR s.id = sr.offered_item_id
+    WHERE sr.requested_item_id IS NULL AND s.user_id != ?
+";
+$recommended_count_stmt = $conn->prepare($recommended_count_query);
+$recommended_count_stmt->bind_param("i", $user_id);
+$recommended_count_stmt->execute();
+$recommended_count_result = $recommended_count_stmt->get_result();
+
+if ($recommended_count_result && $row = $recommended_count_result->fetch_assoc()) {
+  // If there are fewer than 10 total items, show the actual count
+  $recommended_count = min(10, $row['count']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
