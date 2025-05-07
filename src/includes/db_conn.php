@@ -9,7 +9,7 @@ require_once "conn.php";
 // Database connection parameters
 $host = 'localhost';
 $user = 'root';
-$pass = 'root'; // Update with your MySQL password if needed
+$pass = ''; // Update with your MySQL password if needed
 $dbname = 'ecocom_db';
 $charset = 'utf8mb4';
 
