@@ -49,16 +49,16 @@ if ($blog_result) {
       <p class="no-posts-message">No blog posts available at the moment.</p>
     <?php else: ?>
       <?php foreach ($blog_posts as $post): ?>
+        <a style="text-decoration: none;" href="../../pages/blogs/index.php?id=<?php echo $post['id']; ?>">
         <div class="card">
-          <a href="../../pages/blogs/index.php?id=<?php echo $post['id']; ?>">
             <img src="<?php echo !empty($post['image_url']) ? $post['image_url'] : '../../frontend/images/blogpic1.jpg'; ?>" alt="<?php echo htmlspecialchars($post['title']); ?>">
-          </a>
-          <div class="card-content">
-            <h2 class="card-title"><?php echo htmlspecialchars($post['title']); ?></h2>
-            <p class="card-date">Created by <strong class="card-date-real"><?php echo htmlspecialchars($post['author_name']); ?></strong></p>
-            <p class="card-location">Updated on <?php echo $post['formatted_date']; ?></p>
+            <div class="card-content">
+              <h2 class="card-title"><?php echo htmlspecialchars($post['title']); ?></h2>
+              <p class="card-date">Created by <strong class="card-date-real"><?php echo htmlspecialchars($post['author_name']); ?></strong></p>
+              <p class="card-location">Updated on <?php echo $post['formatted_date']; ?></p>
+            </div>
           </div>
-        </div>
+        </a>
       <?php endforeach; ?>
     <?php endif; ?>
   </div>

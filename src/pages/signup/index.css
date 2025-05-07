@@ -163,3 +163,17 @@ input, select {
         max-width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .image-container {
+        display: none;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}

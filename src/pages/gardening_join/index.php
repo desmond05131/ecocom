@@ -166,7 +166,7 @@ $recurring_schedule = $garden ? "Every {$recurring_day}, {$recurring_start_time}
                             <button type="submit" class="button button-primary join-garden">Join Gardening</button>
                         </form>
                     <?php else: ?>
-                        <div class="post-join-buttons">
+                        <div class="action-buttons post-join-buttons">
                             <a href="../../pages/gardening/index.php?garden_id=<?php echo $garden_id; ?>" style="text-decoration: none;display:flex;flex-grow:1;">
                                 <button class="button button-primary view-garden">
                                     View Garden

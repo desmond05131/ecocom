@@ -26,7 +26,7 @@
     </div>
   </div>
   <hr class="footer-hr">
-  <p class="footer-bottom">Copyright © <span id="current-year"></span> www.example.com. All Rights Reserved.</p>
+  <p class="footer-bottom">Copyright © <span id="current-year"></span> www.ecocom.com. All Rights Reserved.</p>
 </footer>
 
 <script src="../../pages/common/footer.js"></script>

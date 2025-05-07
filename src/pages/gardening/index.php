@@ -393,7 +393,7 @@ function formatTimeAgo($timestamp)
                     <?php endif; ?>
                   <?php endif; ?>
 
-                  <?php if ($post['user_id'] == $user_id): ?>
+                  <?php if ($post['user_id'] == $user_id && $post['has_pending_requests'] == 0 && $post['has_accepted_requests'] == 0): ?>
                     <button class="action-btn-top edit-btn" title="Edit Post" data-post-id="<?php echo $post['id']; ?>">
                       <i class="fas fa-edit"></i>
                     </button>
