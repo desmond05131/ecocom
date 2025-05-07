@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Function to fetch user's favorite items from the backend
-    function fetchFavoriteItems() {
+    // Function to fetch user's favourite items from the backend
+    function fetchfavouriteItems() {
         // Show loading state for active items
         activeItemsGrid.innerHTML = '<div class="loading-items">Loading your favourites...</div>';
 
@@ -139,15 +139,15 @@ document.addEventListener('DOMContentLoaded', function() {
         removeButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const itemId = this.dataset.id;
-                removeFromFavorites(itemId, this.closest('.item-card'));
+                removeFromfavourites(itemId, this.closest('.item-card'));
             });
         });
     }
 
-    // Function to remove an item from favorites
-    function removeFromFavorites(itemId, itemElement) {
+    // Function to remove an item from favourites
+    function removeFromfavourites(itemId, itemElement) {
         // Confirm before removing
-        if (confirm('Are you sure you want to remove this item from your favorites?')) {
+        if (confirm('Are you sure you want to remove this item from your favourites?')) {
             // Add a fade-out animation
             itemElement.style.transition = 'opacity 0.3s ease';
             itemElement.style.opacity = '0';
@@ -172,5 +172,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize the page
-    fetchFavoriteItems();
+    fetchfavouriteItems();
 });

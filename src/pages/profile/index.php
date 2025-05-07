@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Require user to be logged in
 requireLogin();
@@ -130,9 +130,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Profile</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
   <script src="index.js" defer></script>
 </head>

@@ -26,7 +26,7 @@ imageInput.addEventListener('change', function (event) {
 // Form submission validation
 form.addEventListener('submit', function (event) {
     console.log(previewImage.src)
-    const imageIsRequired = previewImage.src.endsWith('/src/images/placeholder.png');
+    const imageIsRequired = previewImage.src.endsWith('../../images/placeholder.png');
     // If image is required but not uploaded, show error and prevent form submission
     if (imageIsRequired && !imageInput.files.length) {
         event.preventDefault();

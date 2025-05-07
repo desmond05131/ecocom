@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Get item ID from URL
 $item_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -9,7 +9,7 @@ $item_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 // Validate item ID
 if ($item_id <= 0) {
   // Redirect to swaps page if no valid ID provided
-  header('Location: /src/pages/swaps/index.php');
+  header('Location: ../../pages/swaps/index.php');
   exit;
 }
 
@@ -58,7 +58,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'remove') {
 
         if ($delete_stmt->execute() && $delete_stmt->affected_rows > 0) {
           // Item successfully deleted, redirect to swaps page
-          header('Location: /src/pages/swaps/index.php?removed=1');
+          header('Location: ../../pages/swaps/index.php?removed=1');
           exit;
         }
       }
@@ -101,7 +101,7 @@ $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
   // Item not found, redirect to swaps page
-  header('Location: /src/pages/swaps/index.php');
+  header('Location: ../../pages/swaps/index.php');
   exit;
 }
 
@@ -155,9 +155,9 @@ if ($user_id) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo htmlspecialchars($item['item_name']); ?> - Swap Details</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -183,8 +183,8 @@ if ($user_id) {
         <h1><?php echo htmlspecialchars($item['item_name']); ?></h1>
         <?php if ($is_owner): ?>
           <button class="edit-title"
-            onclick="window.location.href = '/src/pages/swaps_create/index.php?id=<?php echo $item['id']; ?>'">
-            <img src="/src/images/edit.png" alt="Edit" class="edit-icon">
+            onclick="window.location.href = '../../pages/swaps_create/index.php?id=<?php echo $item['id']; ?>'">
+            <img src="../../images/edit.png" alt="Edit" class="edit-icon">
           </button>
         <?php endif; ?>
       </div>
@@ -262,7 +262,7 @@ if ($user_id) {
           <span class="close-modal">&times;</span>
         </div>
         <div class="modal-body">
-          <form id="swap-request-form" action="/src/pages/swaps/request_swap.php" method="post">
+          <form id="swap-request-form" action="../../pages/swaps/request_swap.php" method="post">
             <div class="form-group">
               <p>Please select one of your items to swap with this item:</p>
               <div class="items-grid" id="user-items-grid">
@@ -292,7 +292,7 @@ if ($user_id) {
                 <?php endif; ?>
               </div>
               <p class="form-note">Only items you've created will appear here. <a
-                  href="/src/pages/swaps_create/index.php">Create a new item</a> if you don't have any to swap.</p>
+                  href="../../pages/swaps_create/index.php">Create a new item</a> if you don't have any to swap.</p>
             </div>
             <input type="hidden" name="swap_item_id" id="selected-item-id" value="">
             <input type="hidden" name="requested_item_id" value="<?php echo $item['id']; ?>">

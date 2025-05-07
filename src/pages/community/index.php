@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Require user to be logged in
 requireLogin();
@@ -31,9 +31,9 @@ if ($gardens_result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="stylesheet" href="/src/css/footer.css">
-    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
     <script src="./index.js" defer></script>
 </head>
@@ -50,16 +50,16 @@ if ($gardens_result) {
         <?php else: ?>
             <?php foreach ($gardens as $garden): ?>
                 <div class="card">
-                    <a href="/src/pages/gardening_join/index.php?id=<?php echo $garden['id']; ?>">
-                        <img src="/src/images/image (2).png" alt="garden image">
+                    <a href="../../pages/gardening_join/index.php?id=<?php echo $garden['id']; ?>">
+                        <img src="../../images/image (2).png" alt="garden image">
                     </a>
                     <div class="card-content">
                         <h2 class="card-title"><?php echo htmlspecialchars($garden['title']); ?></h2>
                         <p class="card-date">by <strong class="card-date-real"><?php echo htmlspecialchars($garden['username']); ?></strong></p>
                         <p class="card-location"><?php echo htmlspecialchars($garden['address']); ?></p>
                         <div class="btn-container">
-                            <button class="navigate-btn" style="width: 110px; height: 37px;" onclick="window.location.href = '/src/pages/gardening_join/index.php?id=<?php echo $garden['id']; ?>'">
-                                <img src="/src/images/Directions.png" alt="navigate">Navigate
+                            <button class="navigate-btn" style="width: 110px; height: 37px;" onclick="window.location.href = '../../pages/gardening_join/index.php?id=<?php echo $garden['id']; ?>'">
+                                <img src="../../images/Directions.png" alt="navigate">Navigate
                             </button>
                         </div>
                     </div>

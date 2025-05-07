@@ -27,11 +27,11 @@ if (!$is_submitting) {
     $gardens_result = $stmt->get_result();
     $gardens = [];
     if ($gardens_result->num_rows == 0) {
-      header('Location: /src/pages/community/index.php');
+      header('Location: ../../pages/community/index.php');
       exit;
     }
   } else {
-    header('Location: /src/pages/community/index.php');
+    header('Location: ../../pages/community/index.php');
     exit;
   }
 }
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
 
     // Move uploaded file
     if (move_uploaded_file($_FILES['post_image']['tmp_name'], $target_file)) {
-      $image_url = '/src/uploads/garden_posts/' . $filename;
+      $image_url = '../../uploads/garden_posts/' . $filename;
     }
   }
 
@@ -316,9 +316,9 @@ function formatTimeAgo($timestamp)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gardening Community</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script src="index.js" defer></script>
@@ -381,7 +381,7 @@ function formatTimeAgo($timestamp)
             <div class="post-card">
               <div class="post-header">
                 <div class="post-user-info">
-                  <img src="/src/images/profile-placeholder.png" alt="User Profile" class="user-avatar">
+                  <img src="../../images/profile-placeholder.png" alt="User Profile" class="user-avatar">
                   <div class="post-user-details">
                     <h4><?php echo htmlspecialchars($post['username']); ?></h4>
                     <p class="post-time"><?php echo formatTimeAgo($post['created_at']); ?></p>

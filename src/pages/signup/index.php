@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Initialize variables
 $email = '';
@@ -13,7 +13,7 @@ $success_message = '';
 // Check if user is already logged in
 if (isLoggedIn()) {
     // Redirect to home page if already logged in
-    header("Location: /src/pages/index.php");
+    header("Location: ../../pages/index.php");
     exit;
 }
 
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['username'] = $username;
 
                     // Redirect to home page
-                    header("Location: /src/pages/index.php");
+                    header("Location: ../../pages/index.php");
                     exit;
                 } else {
                     $error_message = "Registration failed. Please try again later.";
@@ -212,7 +212,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header class="header">
-    <img src="/src/images/Ellipse 1.svg" alt="" style="padding-top: 20px;"> <Strong>ECOCOM</Strong>
+    <img src="../../images/Ellipse 1.svg" alt="" style="padding-top: 20px;"> <Strong>ECOCOM</Strong>
     </header>
     <div class="container">
         <h2>Join us now</h2>
@@ -253,11 +253,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <button type="submit" class="btn">Continue</button>
 
-            <p class="signin">Have an account? <a href="/src/pages/signin/index.php">Sign in</a></p>
+            <p class="signin">Have an account? <a href="../../pages/signin/index.php">Sign in</a></p>
         </form>
     </div>
     <div class="image-container">
-    <img src="/src/images/Frame 1.png" style="height: 920px; margin-left: auto;">
+    <img src="../../images/Frame 1.png" style="height: 920px; margin-left: auto;">
     </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Get user ID if logged in
 $user_id = isLoggedIn() ? getCurrentUserId() : null;
@@ -11,7 +11,7 @@ $recycling_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // If no ID provided, redirect to recycling list
 if ($recycling_id === 0) {
-    header("Location: /src/pages/recycling/index.php");
+    header("Location: ../../pages/recycling/index.php");
     exit;
 }
 
@@ -31,7 +31,7 @@ $result = $stmt->get_result();
 
 // Check if recycling program exists
 if ($result->num_rows === 0) {
-    header("Location: /src/pages/recycling/index.php");
+    header("Location: ../../pages/recycling/index.php");
     exit;
 }
 
@@ -48,7 +48,7 @@ $formatted_time = $event_date->format('g:i a') . ' - ' . $event_end_date->format
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     if (!isLoggedIn()) {
         // Redirect to login page if not logged in
-        header("Location: /src/pages/signin/index.php?redirect=" . urlencode($_SERVER['REQUEST_URI']));
+        header("Location: ../../pages/signin/index.php?redirect=" . urlencode($_SERVER['REQUEST_URI']));
         exit;
     }
     
@@ -93,9 +93,9 @@ if (!empty($program['item_to_recycle'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title><?php echo htmlspecialchars($program['title']); ?> - Recycling Info</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 </head>
 <body>
@@ -105,7 +105,7 @@ if (!empty($program['item_to_recycle'])) {
   <div class="recycling-detail-container">
     <!-- Recycling Image -->
     <div class="recycling-image">
-      <img src="/src/images/image.png" alt="Recycling" class="img-responsive"/>
+      <img src="../../images/image.png" alt="Recycling" class="img-responsive"/>
     </div>
 
     <!-- Recycling Info -->
@@ -125,7 +125,7 @@ if (!empty($program['item_to_recycle'])) {
               <?php endif; ?>
             </form>
           <?php else: ?>
-            <a href="/src/pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="button button-primary">Login to Join</a>
+            <a href="../../pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="button button-primary">Login to Join</a>
           <?php endif; ?>
         </div>
 

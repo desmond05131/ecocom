@@ -18,9 +18,9 @@ $user_id = getCurrentUserId();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Calendar</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 
   <!-- FullCalendar Core CSS -->

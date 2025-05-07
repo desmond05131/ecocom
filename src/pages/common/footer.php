@@ -36,4 +36,4 @@
   <p class="footer-bottom">Copyright © <span id="current-year"></span> www.example.com. All Rights Reserved.</p>
 </footer>
 
-<script src="/src/pages/common/footer.js"></script>
+<script src="../../pages/common/footer.js"></script>

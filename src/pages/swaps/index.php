@@ -197,9 +197,9 @@ $recommended_count = min(10, $total_swaps_count);
     ?>
   </title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
   <script src="./index.js" defer></script>
 </head>
@@ -254,7 +254,7 @@ $recommended_count = min(10, $total_swaps_count);
     <!-- Button Row Above Products -->
     <div class="button-row">
       <div class="button-container">
-        <a href="/src/pages/swaps_create/index.php">
+        <a href="../../pages/swaps_create/index.php">
           <button class="button button-primary create-button">Create new Swaps</button>
         </a>
       </div>
@@ -266,40 +266,40 @@ $recommended_count = min(10, $total_swaps_count);
         <h3>Swaps by Genre</h3>
         <ul>
           <li <?php echo empty($selected_category) ? 'class="active"' : ''; ?>>
-            <a href="/src/pages/swaps/index.php">All Swaps <span class="count">(<?php echo $total_swaps_count; ?>)</span></a>
+            <a href="../../pages/swaps/index.php">All Swaps <span class="count">(<?php echo $total_swaps_count; ?>)</span></a>
           </li>
           <li class="<?php echo ($selected_category === 'Recommended') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Recommended">Recommended <span
+              href="../../pages/swaps/index.php?category=Recommended">Recommended <span
                 class="count">(<?php echo $recommended_count; ?>)</span></a></li>
           <li class="has-arrow <?php echo ($selected_category === 'Home & Kitchen') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Home%20%26%20Kitchen">Home &
+              href="../../pages/swaps/index.php?category=Home%20%26%20Kitchen">Home &
               Kitchen <span class="count">(<?php echo $category_counts['Home & Kitchen'] ?? '0'; ?>)</span></a><span
               class="arrow">&gt;</span></li>
           <li class="has-arrow <?php echo ($selected_category === 'Cleaning') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Cleaning">Cleaning <span
+              href="../../pages/swaps/index.php?category=Cleaning">Cleaning <span
                 class="count">(<?php echo $category_counts['Cleaning'] ?? '0'; ?>)</span></a><span class="arrow">&gt;</span>
           </li>
           <li class="has-arrow <?php echo ($selected_category === 'Bathroom') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Bathroom">Bathroom <span
+              href="../../pages/swaps/index.php?category=Bathroom">Bathroom <span
                 class="count">(<?php echo $category_counts['Bathroom'] ?? '0'; ?>)</span></a><span class="arrow">&gt;</span>
           </li>
           <li class="has-arrow <?php echo ($selected_category === 'Beauty') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Beauty">Beauty <span
+              href="../../pages/swaps/index.php?category=Beauty">Beauty <span
                 class="count">(<?php echo $category_counts['Beauty'] ?? '0'; ?>)</span></a><span class="arrow">&gt;</span>
           </li>
           <li class="has-arrow <?php echo ($selected_category === 'Baby & Kids') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Baby%20%26%20Kids">Baby & Kids <span
+              href="../../pages/swaps/index.php?category=Baby%20%26%20Kids">Baby & Kids <span
                 class="count">(<?php echo $category_counts['Baby & Kids'] ?? '0'; ?>)</span></a>
             <span class="arrow">&gt;</span>
           </li>
           <li class="has-arrow <?php echo ($selected_category === 'Pets') ? 'active' : ''; ?>"><a
-              href="/src/pages/swaps/index.php?category=Pets">Pets <span
+              href="../../pages/swaps/index.php?category=Pets">Pets <span
               class="count">(<?php echo $category_counts['Pets'] ?? '0'; ?>)</span></a><span class="arrow">&gt;</span>
           </li>
           <hr />
 
           <li class="has-arrow <?php echo isset($_GET['my_swaps']) ? 'active' : ''; ?>">
-            <a href="/src/pages/swaps/index.php?my_swaps=1">
+            <a href="../../pages/swaps/index.php?my_swaps=1">
               Your Swaps
               <span class="count">(<?php echo $user_swaps_count; ?>)</span>
             </a>
@@ -318,8 +318,8 @@ $recommended_count = min(10, $total_swaps_count);
       <?php else: ?>
         <?php foreach ($swaps as $swap): ?>
           <div class="product-card">
-            <a href="/src/pages/swaps_inspect/index.php?id=<?php echo $swap['id']; ?>">
-              <img src="<?php echo !empty($swap['image_url']) ? $swap['image_url'] : '/src/images/Toothpaste.png'; ?>"
+            <a href="../../pages/swaps_inspect/index.php?id=<?php echo $swap['id']; ?>">
+              <img src="<?php echo !empty($swap['image_url']) ? $swap['image_url'] : '../../images/Toothpaste.png'; ?>"
                 alt="<?php echo htmlspecialchars($swap['item_name']); ?>">
             </a>
             <h4><?php echo htmlspecialchars($swap['item_name']); ?></h4>

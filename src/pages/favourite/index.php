@@ -53,9 +53,9 @@ $expired_items = [];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Favourites</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -111,7 +111,7 @@ $expired_items = [];
                 <p class="item-category"><span class="category-tag"><?php echo htmlspecialchars($item['category']); ?></span></p>
                 <p class="item-description"><?php echo htmlspecialchars(substr($item['description'], 0, 100)) . (strlen($item['description']) > 100 ? '...' : ''); ?></p>
                 <div class="item-actions">
-                  <button class="view-btn" onclick="location.href='/src/pages/swaps_inspect/index.php?id=<?php echo $item['id']; ?>'">View Details</button>
+                  <button class="view-btn" onclick="location.href='../../pages/swaps_inspect/index.php?id=<?php echo $item['id']; ?>'">View Details</button>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@ $expired_items = [];
           <div class="no-items-message" id="no-active-items">
             <p>You don't have any favourite items.</p>
             <p>Browse items and click the FAVOURITE button to add them here.</p>
-            <a href="/src/pages/swaps/index.php" class="browse-btn">Browse Items</a>
+            <a href="../../pages/swaps/index.php" class="browse-btn">Browse Items</a>
           </div>
         <?php endif; ?>
       </div>

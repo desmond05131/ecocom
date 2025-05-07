@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // No login required for viewing blog posts
 // Get user ID if logged in (for potential future features like favorites)
@@ -33,9 +33,9 @@ if ($blog_result) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog Posts</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 </head>
 
@@ -50,8 +50,8 @@ if ($blog_result) {
     <?php else: ?>
       <?php foreach ($blog_posts as $post): ?>
         <div class="card">
-          <a href="/src/pages/blogs/index.php?id=<?php echo $post['id']; ?>">
-            <img src="<?php echo !empty($post['image_url']) ? $post['image_url'] : '/src/frontend/images/blogpic1.jpg'; ?>" alt="<?php echo htmlspecialchars($post['title']); ?>">
+          <a href="../../pages/blogs/index.php?id=<?php echo $post['id']; ?>">
+            <img src="<?php echo !empty($post['image_url']) ? $post['image_url'] : '../../frontend/images/blogpic1.jpg'; ?>" alt="<?php echo htmlspecialchars($post['title']); ?>">
           </a>
           <div class="card-content">
             <h2 class="card-title"><?php echo htmlspecialchars($post['title']); ?></h2>

@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
 <!-- Sidebar Navigation -->
 <div id="mySidebar" class="header-sidebar">
     <a href="javascript:void(0)" class="closebtn">&times;</a>
-    <a href="/src/pages/index.php">Home</a>
-    <a href="/src/pages/recycling/index.php">Recycling</a>
-    <a href="/src/pages/blogs_all/index.php">All Blogs</a>
+    <a href="../../pages/index.php">Home</a>
+    <a href="../../pages/recycling/index.php">Recycling</a>
+    <a href="../../pages/blogs_all/index.php">All Blogs</a>
     <!-- <button class="community_gardening">Community Gardening
         <i class="fa fa-caret-down"></i>
     </button>
@@ -36,8 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
         <a href="#">All Swaps</a>
         <a href="#">My Swaps</a>
     </div> -->
-    <a href="/src/pages/community/index.php">Gardening</a>
-    <a href="/src/pages/swaps/index.php">Swaps</a>
+    <a href="../../pages/community/index.php">Gardening</a>
+    <a href="../../pages/swaps/index.php">Swaps</a>
 </div>
 </div>
 
@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
 <header class="header-sticky-navbar">
     <div class="header-navbar">
         <div class="header-navbar-left">
-            <img src="/src/images/burgerMenu.png" alt="Menu Icon" class="icon" id="menuBtn">
+            <img src="../../images/burgerMenu.png" alt="Menu Icon" class="icon" id="menuBtn">
         </div>
 
         <div class="header-logo">
-            <a href="/src/pages/index.php">
-                <img src="/src/images/Ellipse 1.svg" alt="Logo" class="header-logo-icon">
+            <a href="../../pages/index.php">
+                <img src="../../images/Ellipse 1.svg" alt="Logo" class="header-logo-icon">
                 <span class="header-logo-text"> ECOCOM</span>
             </a>
         </div>
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
         <div class="header-navbar-right">
             <div class="header-notification-container">
                 <div class="notification-icon-wrapper">
-                    <img src="/src/images/notification.svg" alt="Notification Icon"
+                    <img src="../../images/notification.svg" alt="Notification Icon"
                         style="width: 30px; height: 30px; position: relative; top: -1px;" class="icon"
                         id="notificationBtn">
                     <!-- PHP will render the actual count here -->
@@ -230,16 +230,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
                 </div>
             </div>
             <div class="header-profile-container">
-                <img src="/src/images/profile.png" alt="Person Icon" class="icon" id="profileBtn">
+                <img src="../../images/profile.png" alt="Person Icon" class="icon" id="profileBtn">
                 <div class="header-profile-dropdown" id="profileDropdown">
-                    <a href="/src/pages/profile/index.php">My Profile</a>
-                    <a href="/src/pages/calendar/index.php">Calendar</a>
-                    <a href="/src/pages/favourite/index.php">Favourite</a>
-                    <a href="/src/pages/logout.php">Logout</a>
+                    <a href="../../pages/profile/index.php">My Profile</a>
+                    <a href="../../pages/calendar/index.php">Calendar</a>
+                    <a href="../../pages/favourite/index.php">Favourite</a>
+                    <a href="../../pages/logout.php">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<script src="/src/pages/common/header.js"></script>
+<script src="../../pages/common/header.js"></script>

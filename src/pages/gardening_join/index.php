@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Require user to be logged in
 requireLogin();
@@ -113,9 +113,9 @@ $recurring_schedule = $garden ? "Every {$recurring_day}, {$recurring_start_time}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gardening With You</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="stylesheet" href="/src/css/footer.css">
-    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 </head>
 
@@ -124,7 +124,7 @@ $recurring_schedule = $garden ? "Every {$recurring_day}, {$recurring_start_time}
     <?php include '../common/header.php'; ?>
 
     <main>
-        <img src="/src/images/garden.png" alt="garden" class="garden-img">
+        <img src="../../images/garden.png" alt="garden" class="garden-img">
 
         <?php if ($garden): ?>
             <!-- Gardening Info -->
@@ -167,7 +167,7 @@ $recurring_schedule = $garden ? "Every {$recurring_day}, {$recurring_start_time}
                         </form>
                     <?php else: ?>
                         <div class="post-join-buttons">
-                            <a href="/src/pages/gardening/index.php?garden_id=<?php echo $garden_id; ?>" style="text-decoration: none;display:flex;flex-grow:1;">
+                            <a href="../../pages/gardening/index.php?garden_id=<?php echo $garden_id; ?>" style="text-decoration: none;display:flex;flex-grow:1;">
                                 <button class="button button-primary view-garden">
                                     View Garden
                                 </button>
@@ -183,7 +183,7 @@ $recurring_schedule = $garden ? "Every {$recurring_day}, {$recurring_start_time}
         <?php else: ?>
             <div class="error-container">
                 <p>Garden information not available. Please go back to the <a
-                        href="/src/pages/community/index.php">Community Gardens</a> page.</p>
+                        href="../../pages/community/index.php">Community Gardens</a> page.</p>
             </div>
         <?php endif; ?>
     </main>

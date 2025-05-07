@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 requireLogin();
 
@@ -86,9 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recycling</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="/src/css/header.css">
-  <link rel="stylesheet" href="/src/css/footer.css">
-  <link rel="stylesheet" href="/src/css/common.css">
+  <link rel="stylesheet" href="../../css/header.css">
+  <link rel="stylesheet" href="../../css/footer.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 </head>
 
@@ -105,8 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
     <?php else: ?>
       <?php foreach ($recycling_programs as $program): ?>
         <div class="card">
-          <a href="/src/pages/recycling_info/index.php?id=<?php echo $program['id']; ?>">
-            <img src="/src/images/image.png" alt="recycling center">
+          <a href="../../pages/recycling_info/index.php?id=<?php echo $program['id']; ?>">
+            <img src="../../images/image.png" alt="recycling center">
           </a>
           <div class="card-content">
             <h2 class="card-title"><?php echo htmlspecialchars($program['title']); ?></h2>
@@ -119,23 +119,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
                   <?php if ($program['is_participating']): ?>
                     <input type="hidden" name="action" value="leave">
                     <button type="submit" class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none; background-color: #e74c3c;">
-                      <img src="/src/images/Calendar month.png" class="card-calender" alt="Leave Program" style="width: 34px" title="Leave Program">
+                      <img src="../../images/Calendar month.png" class="card-calender" alt="Leave Program" style="width: 34px" title="Leave Program">
                     </button>
                   <?php else: ?>
                     <input type="hidden" name="action" value="join">
                     <button type="submit" class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none; background-color: #2ecc71;">
-                      <img src="/src/images/Calendar month.png" class="card-calender" alt="Join Program" style="width: 34px" title="Join Program">
+                      <img src="../../images/Calendar month.png" class="card-calender" alt="Join Program" style="width: 34px" title="Join Program">
                     </button>
                   <?php endif; ?>
                 </form>
               <?php else: ?>
-                <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '/src/pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
-                  <img src="/src/images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
+                <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '../../pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
+                  <img src="../../images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
                 </button>
               <?php endif; ?>
               <button class="navigate-btn" style="width: 110px; height: 37px;"
-                onclick="window.location.href = '/src/pages/recycling_info/index.php?id=<?php echo $program['id']; ?>'">
-                <img src="/src/images/Directions.png" alt="navigate">Navigate
+                onclick="window.location.href = '../../pages/recycling_info/index.php?id=<?php echo $program['id']; ?>'">
+                <img src="../../images/Directions.png" alt="navigate">Navigate
               </button>
             </div>
           </div>
@@ -146,8 +146,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
     <?php if (empty($recycling_programs)): ?>
       <!-- Display static example cards if no data in database -->
       <div class="card">
-        <a href="/src/pages/recycling_info/index.php">
-          <img src="/src/images/image.png" alt="recycling center">
+        <a href="../../pages/recycling_info/index.php">
+          <img src="../../images/image.png" alt="recycling center">
         </a>
         <div class="card-content">
           <h2 class="card-title">Klang Valley Recycling</h2>
@@ -155,28 +155,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && isset($_
           <p class="card-location">Jalan Teknologi 5, Taman Teknologi Malaysia, Kuala Lumpur, 57000 Kuala Lumpur, Wilayah
             Persekutuan Kuala Lumpur</p>
           <div class="btn-container">
-            <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '/src/pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
-              <img src="/src/images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
+            <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '../../pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
+              <img src="../../images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
             </button>
             <button class="navigate-btn" style="width: 110px; height: 37px;"
-              onclick="window.location.href = '/src/pages/recycling_info/index.php'">
-              <img src="/src/images/Directions.png" alt="navigate">Navigate
+              onclick="window.location.href = '../../pages/recycling_info/index.php'">
+              <img src="../../images/Directions.png" alt="navigate">Navigate
             </button>
           </div>
         </div>
       </div>
       <div class="card">
-        <img src="/src/images/image.png" alt="recycling center">
+        <img src="../../images/image.png" alt="recycling center">
         <div class="card-content">
           <h2 class="card-title">Klang Valley Recycling</h2>
           <p class="card-date">Next Program <strong class="card-date-real">Tomorrow</strong></p>
           <p class="card-location">Jalan Teknologi 5, Taman Teknologi Malaysia, Kuala Lumpur, 57000 Kuala Lumpur, Wilayah
             Persekutuan Kuala Lumpur</p>
           <div class="btn-container">
-            <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '/src/pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
-              <img src="/src/images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
+            <button class="calender-btn" style="width: 40px; height: 37px; border-radius: 10px; border: none;" onclick="window.location.href = '../../pages/signin/index.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>'">
+              <img src="../../images/Calendar month.png" class="card-calender" alt="Login to Join" style="width: 34px" title="Login to Join">
             </button>
-            <button class="navigate-btn" style="width: 110px; height: 37px;"><img src="/src/images/Directions.png"
+            <button class="navigate-btn" style="width: 110px; height: 37px;"><img src="../../images/Directions.png"
                 alt="navigate">Navigate</button>
           </div>
         </div>

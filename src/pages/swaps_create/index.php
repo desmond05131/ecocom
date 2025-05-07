@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Require login to access this page
 requireLogin();
@@ -29,7 +29,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
     if ($result->num_rows === 0) {
         // Item not found
-        header("Location: /src/pages/swaps/index.php");
+        header("Location: ../../pages/swaps/index.php");
         exit;
     }
 
@@ -38,7 +38,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     // Verify the current user is the owner of this item
     if ($item['user_id'] != $user_id) {
         // Not the owner, redirect to swaps page
-        header("Location: /src/pages/swaps/index.php");
+        header("Location: ../../pages/swaps/index.php");
         exit;
     }
 }
@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Move uploaded file
             if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-                $image_url = '/src/uploads/swaps/' . $filename;
+                $image_url = '../../uploads/swaps/' . $filename;
             } else {
                 $error_message = "Failed to upload image.";
             }
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if (empty($error_message) && $stmt->execute()) {
                     // Redirect to the item's detail page
-                    header("Location: /src/pages/swaps_inspect/index.php?id=" . $item_id);
+                    header("Location: ../../pages/swaps_inspect/index.php?id=" . $item_id);
                     exit;
                 } elseif (empty($error_message)) {
                     $error_message = "Error updating swap: " . $conn->error;
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if ($stmt->execute()) {
                     // Redirect to swaps page
-                    header("Location: /src/pages/swaps/index.php");
+                    header("Location: ../../pages/swaps/index.php");
                     exit;
                 } else {
                     $error_message = "Error creating swap: " . $conn->error;
@@ -152,9 +152,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $is_edit_mode ? 'Edit' : 'Create'; ?> Swap</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="stylesheet" href="/src/css/footer.css">
-    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
     <script src="./index.js" defer></script>
 </head>
@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="image-upload">
                         <label for="image-input" class="image-label">
                             <img id="preview-image"
-                                src="<?php echo $is_edit_mode && !empty($item['image_url']) ? htmlspecialchars($item['image_url']) : '/src/images/placeholder.png'; ?>"
+                                src="<?php echo $is_edit_mode && !empty($item['image_url']) ? htmlspecialchars($item['image_url']) : '../../images/placeholder.png'; ?>"
                                 alt="Upload your image here..." class="garden-img">
                         </label>
                         <input type="file" name="image" id="image-input" accept="image/*" style="display: none;">

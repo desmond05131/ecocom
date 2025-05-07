@@ -3,7 +3,7 @@
  * Database Setup Script for EcoCom Project
  *
  * This script creates the database and all required tables for the EcoCom project.
- * It uses the SQL file located at src/database/ecocom_db.sql to set up the database structure.
+ * It uses the SQL file located at ../../database/ecocom_db.sql to set up the database structure.
  * Run this script once to set up your database structure.
  */
 
@@ -164,7 +164,7 @@ $blog_posts = [
 
 7. Harness natural light: Open curtains during the day to use natural sunlight instead of artificial lighting, but be mindful of heat gain in summer.",
         'author_id' => 1,
-        'image_url' => '/src/frontend/images/blogpic1.jpg',
+        'image_url' => '../../frontend/images/blogpic1.jpg',
     ],
     [
         'title' => 'Understanding recycling symbols: What those numbers really mean',
@@ -186,7 +186,7 @@ $blog_posts = [
 
 Remember that recycling capabilities vary by location, so always check your local recycling guidelines to ensure you're recycling correctly.",
         'author_id' => 1,
-        'image_url' => '/src/frontend/images/recycling-symbols.jpg',
+        'image_url' => '../../frontend/images/recycling-symbols.jpg',
     ],
     [
         'title' => 'How to start your own community garden',
@@ -214,7 +214,7 @@ Remember that recycling capabilities vary by location, so always check your loca
 
 Community gardens not only provide fresh produce but also create educational opportunities, improve neighborhood aesthetics, and strengthen community bonds.",
         'author_id' => 1,
-        'image_url' => '/src/frontend/images/community-garden.jpg',
+        'image_url' => '../../frontend/images/community-garden.jpg',
     ],
 ];
 

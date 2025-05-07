@@ -1,7 +1,7 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // No login required for viewing blog posts
 // Get user ID if logged in (for potential future features like favorites)
@@ -12,7 +12,7 @@ $blog_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // If no ID provided, redirect to blogs list
 if ($blog_id <= 0) {
-    header('Location: /src/pages/blogs_all/index.php');
+    header('Location: ../../pages/blogs_all/index.php');
     exit;
 }
 
@@ -32,7 +32,7 @@ $result = $stmt->get_result();
 
 // If blog post not found, redirect to blogs list
 if ($result->num_rows === 0) {
-    header('Location: /src/pages/blogs_all/index.php');
+    header('Location: ../../pages/blogs_all/index.php');
     exit;
 }
 
@@ -46,9 +46,9 @@ $blog_post = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($blog_post['title']); ?></title>
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="/src/css/header.css">
-    <link rel="stylesheet" href="/src/css/footer.css">
-    <link rel="stylesheet" href="/src/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/common.css">
     <link href='https://fonts.googleapis.com/css?family=Source Sans Pro' rel='stylesheet'>
 </head>
 <body>
@@ -61,7 +61,7 @@ $blog_post = $result->fetch_assoc();
                 <h1><?php echo htmlspecialchars($blog_post['title']); ?></h1>
                 <p class="meta">Created by <?php echo htmlspecialchars($blog_post['author_name']); ?> · Updated on <?php echo $blog_post['formatted_date']; ?></p>
                 <br>
-                <img src="<?php echo !empty($blog_post['image_url']) ? $blog_post['image_url'] : '/src/frontend/images/blogpic1.jpg'; ?>" alt="<?php echo htmlspecialchars($blog_post['title']); ?>" class="featured-image">
+                <img src="<?php echo !empty($blog_post['image_url']) ? $blog_post['image_url'] : '../../frontend/images/blogpic1.jpg'; ?>" alt="<?php echo htmlspecialchars($blog_post['title']); ?>" class="featured-image">
             </header>
             <article>
                 <?php

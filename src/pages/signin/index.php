@@ -1,12 +1,12 @@
 <?php
 // Include database connection and authentication helper
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Initialize variables
 $email = '';
 $error_message = '';
-$redirect_url = isset($_GET['redirect']) ? $_GET['redirect'] : '/src/pages/index.php';
+$redirect_url = isset($_GET['redirect']) ? $_GET['redirect'] : '../../pages/index.php';
 
 // Check if user is already logged in
 if (isLoggedIn()) {
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header class="header">
-        <img src="/src/images/Ellipse 1.svg" alt="Description of image" style="padding-top: 20px;"> <Strong>ECOCOM</Strong>
+        <img src="../../images/Ellipse 1.svg" alt="Description of image" style="padding-top: 20px;"> <Strong>ECOCOM</Strong>
     </header>
     <div class="container">
         <h2>Welcome back</h2>
@@ -108,11 +108,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
             <button type="submit" class="btn">Continue</button>
         
-            <p class="signin">Don't have an account? <a href="/src/pages/signup/index.php">Sign up</a></p>
+            <p class="signin">Don't have an account? <a href="../../pages/signup/index.php">Sign up</a></p>
         </form>
     </div>
     <div class="image-container">
-        <img src="/src/images/Frame 1.png" style="height: 920px; margin-left: auto;">
+        <img src="../../images/Frame 1.png" style="height: 920px; margin-left: auto;">
     </div>
 </body>
 </html>

@@ -1,13 +1,13 @@
 <?php
 // Include database connection and authentication
-require_once '../../includes/db_conn.php';
-require_once '../../includes/auth.php';
+require_once realpath(__DIR__ . '/../../includes/db_conn.php');
+require_once realpath(__DIR__ . '/../../includes/auth.php');
 
 // Check if user is logged in
 $user_id = getCurrentUserId();
 if (!$user_id) {
     // Redirect to login page if not logged in
-    header('Location: /src/pages/login/index.php');
+    header('Location: ../../pages/login/index.php');
     exit;
 }
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate input
     if ($requested_item_id <= 0 || $offered_item_id <= 0) {
         // Invalid input, redirect back with error
-        header('Location: /src/pages/swaps/index.php?error=invalid_input');
+        header('Location: ../../pages/swaps/index.php?error=invalid_input');
         exit;
     }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($check_result->num_rows === 0) {
         // Item not found, redirect back with error
-        header('Location: /src/pages/swaps/index.php?error=item_not_found');
+        header('Location: ../../pages/swaps/index.php?error=item_not_found');
         exit;
     }
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the user is trying to swap with their own item
     if ($requested_item['user_id'] == $user_id) {
         // Cannot swap with own item, redirect back with error
-        header('Location: /src/pages/swaps/index.php?error=own_item');
+        header('Location: ../../pages/swaps/index.php?error=own_item');
         exit;
     }
 
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($offered_check_result->num_rows === 0) {
         // Offered item not found or not owned by user, redirect back with error
-        header('Location: /src/pages/swaps/index.php?error=invalid_offered_item');
+        header('Location: ../../pages/swaps/index.php?error=invalid_offered_item');
         exit;
     }
 
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($existing_result->num_rows > 0) {
         // There's already a pending request for one of these items
-        header('Location: /src/pages/swaps/index.php?error=existing_request');
+        header('Location: ../../pages/swaps/index.php?error=existing_request');
         exit;
     }
 
@@ -104,15 +104,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $notification_stmt->execute();
         
         // Redirect to swaps page with success message
-        header('Location: /src/pages/swaps/index.php?success=request_sent');
+        header('Location: ../../pages/swaps/index.php?success=request_sent');
         exit;
     } else {
         // Error creating swap request
-        header('Location: /src/pages/swaps/index.php?error=request_failed');
+        header('Location: ../../pages/swaps/index.php?error=request_failed');
         exit;
     }
 } else {
     // Not a POST request, redirect to swaps page
-    header('Location: /src/pages/swaps/index.php');
+    header('Location: ../../pages/swaps/index.php');
     exit;
 }

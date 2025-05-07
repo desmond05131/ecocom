@@ -25,7 +25,7 @@ function isLoggedIn() {
 function requireLogin($redirect_url = '') {
     if (!isLoggedIn()) {
         $redirect = empty($redirect_url) ? '' : '?redirect=' . urlencode($redirect_url);
-        header("Location: /src/pages/signin/index.php" . $redirect);
+        header("Location: ../../pages/signin/index.php" . $redirect);
         exit;
     }
 }
