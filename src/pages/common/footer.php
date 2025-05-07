@@ -1,34 +1,27 @@
 <footer class="footer-site-footer">
   <div class="footer-columns">
     <div class="footer-col">
-      <h4>Explore</h4>
+      <h4>Swaps</h4>
       <ul>
-        <li><a href="#">Product Swap</a></li>
-        <li><a href="#">My Products</a></li>
-        <li><a href="#">Swap History</a></li>
+        <li><a href="../../pages/swaps/index.php">Product Swap</a></li>
+        <li><a href="../../pages/swaps/index.php?category=Recommended">Recommended Swap</a></li>
+        <li><a href="../../pages/swaps/index.php?my_swaps=1">My Products</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Help</h4>
+      <h4>Others</h4>
       <ul>
-        <li><a href="#">Help Center</a></li>
-        <li><a href="#">Returns & Warranty</a></li>
-        <li><a href="#">Contact Us</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>About</h4>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Impact</a></li>
+        <li><a href="../../pages/community/index.php">Gardens</a></li>
+        <li><a href="../../pages/blogs_all/index.php">Blogs</a></li>
+        <li><a href="../../pages/recycling/index.php">Recycling programs</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>My Account</h4>
       <ul>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="../../pages/profile/index.php">Profile</a></li>
+        <li><a href="../../pages/favourite/index.php">Favourite</a></li>
+        <li><a href="../../pages/logout.php">Logout</a></li>
       </ul>
     </div>
   </div>
