@@ -56,9 +56,8 @@ $user_id = getCurrentUserId();
           startRecur: '" . $garden['start_date'] . "',
           endRecur: '" . $garden['end_date'] . "',
           extendedProps: {
-            location: '" . addslashes($garden['address']) . "',
+            id: '" . $garden['id'] . "',
             type: 'gardening',
-            description: '" . addslashes($garden['description']) . "'
           }
         }";
       }
@@ -83,9 +82,8 @@ $user_id = getCurrentUserId();
           end: '" . $recycling['event_end_date'] . "',
           allDay: false,
           extendedProps: {
-            location: '" . addslashes($recycling['location']) . "',
+            id: '" . $recycling['id'] . "',
             type: 'recycling',
-            description: '" . addslashes($recycling['description']) . "'
           }
         }";
       }

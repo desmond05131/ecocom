@@ -30,7 +30,14 @@ function initializeCalendar() {
       return ['fc-event', `${arg.event.extendedProps.type}-event`];
     },
     eventClick: function(info) {
-      showEventDetails(info.event);
+      //redirect to event page
+      if (info.event.extendedProps.type === 'gardening') {
+        window.location.href = `../../pages/gardening_join/index.php?id=${info.event.extendedProps.id}`;
+        return;
+      } else if (info.event.extendedProps.type === 'recycling') {
+        window.location.href = `../../pages/recycling_info/index.php?id=${info.event.extendedProps.id}`;
+        return;
+      }
     },
     eventTimeFormat: {
       hour: '2-digit',
@@ -44,37 +51,4 @@ function initializeCalendar() {
 
   // Render the calendar
   calendar.render();
-}
-
-/**
- * Display event details in a popup when an event is clicked
- * @param {Object} event - The FullCalendar event object
- */
-function showEventDetails(event) {
-  // Create alert with event details
-  const eventTime = event.startStr ? new Date(event.startStr).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) :
-                   (event.startTime || 'All day');
-
-  const details = `
-    ${event.title}
-    -----------------------------
-    Time: ${eventTime} - ${event.endStr ? new Date(event.endStr).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : event.endTime}
-    Location: ${event.extendedProps.location}
-    Description: ${event.extendedProps.description}
-  `;
-
-  alert(details);
-
-  // In a real application, you would show a modal dialog instead of an alert
-  // For example:
-  // showModal(event.title, event.extendedProps.location, event.extendedProps.description);
-}
-
-/**
- * Example function to show a modal with event details
- * This would be implemented with a proper modal component in a real application
- */
-function showModal(title, location, description) {
-  // This is just a placeholder for a real modal implementation
-  console.log('Would show modal with:', { title, location, description });
 }
