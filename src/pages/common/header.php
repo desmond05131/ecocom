@@ -97,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
 
 
                         // Render the notifications
+                        $unread_count = 0;
                         if ($result->num_rows > 0) {
-                            $unread_counter = 0;
                             while ($row = $result->fetch_assoc()) {
                                 $notification_id = $row['id'];
                                 $type = $row['type'];
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
                                 }
 
                                 // Count unread notifications for badge
-                                $unread_counter++;
+                                $unread_count++;
 
                                 echo "<div class='notification-item' data-id='{$notification_id}' data-type='{$type}'>";
                                 echo "<div class='notification-content'>";
@@ -208,7 +208,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
 
                                 echo "</div>";
                             }
-                            $unread_count = $unread_counter;
                         }
                         
                         if ($unread_count == 0) {
