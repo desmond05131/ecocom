@@ -6,7 +6,7 @@ require_once realpath(__DIR__ . '/../../includes/auth.php');
 // Initialize variables
 $email = '';
 $error_message = '';
-$redirect_url = isset($_GET['redirect']) ? $_GET['redirect'] : '../../pages/index.php';
+$redirect_url = isset($_GET['redirect']) ? $_GET['redirect'] : '../../pages/home/index.php';
 
 // Check if user is already logged in
 if (isLoggedIn()) {

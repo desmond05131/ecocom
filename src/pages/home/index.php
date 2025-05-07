@@ -16,7 +16,7 @@
 <body>
 
   <!-- Header will be loaded here -->
-  <?php include './common/header.php'; ?>
+  <?php include '../common/header.php'; ?>
 
   <!-- Main Image Section -->
   <section class="main-image">
@@ -68,9 +68,6 @@
 
     <div class="swap-items">
       <?php
-      // Include database connection
-      include_once './includes/conn.php';
-
       // Fetch the most recent swap items that haven't been swapped yet
       $query = "
           SELECT s.*, u.username AS author_name
@@ -104,7 +101,7 @@
           ?>
           <div class="swap-card">
             <a href="../../pages/swaps_inspect/index.php?id=<?php echo $swap['id']; ?>">
-              <img src="<?php echo !empty($swap['image_url']) ? $swap['image_url'] : '../../images/Toothpaste.png'; ?>"
+              <img class="img-responsive" src="<?php echo !empty($swap['image_url']) ? $swap['image_url'] : '../../images/Toothpaste.png'; ?>"
                 alt="<?php echo htmlspecialchars($swap['item_name']); ?>">
             </a>
             <p class="product-name"><?php echo htmlspecialchars($swap['item_name']); ?></p>
@@ -130,7 +127,7 @@
   </section>
 
   <!-- Footer will be loaded here -->
-  <?php include './common/footer.php'; ?>
+  <?php include '../common/footer.php'; ?>
 
 </body>
 

@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
 <!-- Sidebar Navigation -->
 <div id="mySidebar" class="header-sidebar">
     <a href="javascript:void(0)" class="closebtn">&times;</a>
-    <a href="../../pages/index.php">Home</a>
+    <a href="../../pages/home/index.php">Home</a>
     <a href="../../pages/recycling/index.php">Recycling</a>
     <a href="../../pages/blogs_all/index.php">All Blogs</a>
     <!-- <button class="community_gardening">Community Gardening
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['notification_action']
         </div>
 
         <div class="header-logo">
-            <a href="../../pages/index.php">
+            <a href="../../pages/home/index.php">
                 <img src="../../images/Ellipse 1.svg" alt="Logo" class="header-logo-icon">
                 <span class="header-logo-text"> ECOCOM</span>
             </a>

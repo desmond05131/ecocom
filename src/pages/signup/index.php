@@ -13,7 +13,7 @@ $success_message = '';
 // Check if user is already logged in
 if (isLoggedIn()) {
     // Redirect to home page if already logged in
-    header("Location: ../../pages/index.php");
+    header("Location: ../../pages/home/index.php");
     exit;
 }
 
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $_SESSION['username'] = $username;
 
                     // Redirect to home page
-                    header("Location: ../../pages/index.php");
+                    header("Location: ../../pages/home/index.php");
                     exit;
                 } else {
                     $error_message = "Registration failed. Please try again later.";
