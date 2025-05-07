@@ -63,12 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
     }
   }
 
-  // Extract the first few words as content (up to 50 chars)
-  $content = substr(trim(preg_replace('/\s+/', ' ', $content)), 0, 50);
-  if (strlen($content) < strlen($content)) {
-    $content .= '...';
-  }
-
   // Insert post into database
   $stmt = $conn->prepare("INSERT INTO garden_posts (user_id, garden_id, content, image_url, is_exchangeable) VALUES (?, ?, ?, ?, ?)");
   $stmt->bind_param("iissi", $user_id, $garden_id, $content, $image_url, $is_exchangeable);
@@ -99,12 +93,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
       // For inline editing, we're only updating the content and exchangeable status
       // Keep the existing image
       $image_url = $row['image_url'];
-
-      // Extract the first few words as content (up to 50 chars)
-      $content = substr(trim(preg_replace('/\s+/', ' ', $content)), 0, 50);
-      if (strlen($content) < strlen($content)) {
-        $content .= '...';
-      }
 
       // Update post in database
       $update_stmt = $conn->prepare("UPDATE garden_posts SET content = ?, is_exchangeable = ? WHERE id = ?");
