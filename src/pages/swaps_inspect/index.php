@@ -135,7 +135,7 @@ if ($request_check_result->num_rows > 0) {
 // If user is logged in, fetch their items for swap
 $user_items = [];
 if ($user_id) {
-  $items_query = "SELECT * FROM swaps WHERE user_id = ? AND id != ?";
+  $items_query = "SELECT * FROM swaps WHERE user_id = ? AND id != ? AND NOT EXISTS (SELECT 1 FROM swap_requests WHERE (requested_item_id = swaps.id OR offered_item_id = swaps.id) AND status = 'accepted')";
   $items_stmt = $conn->prepare($items_query);
   $items_stmt->bind_param("ii", $user_id, $item_id);
   $items_stmt->execute();
